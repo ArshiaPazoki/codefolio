@@ -13,7 +13,6 @@ import {
   VscAccount,
   VscSettings,
 } from 'react-icons/vsc'
-import { Columns } from 'lucide-react'
 
 const topItems = [
   { Icon: VscFiles, path: '/' },
