@@ -54,7 +54,7 @@ const ActivityBar: FC<ActivityBarProps> = ({ onToggleExplorer }) => {
                 onClick={onToggleExplorer}
                 className={common}
               >
-                <Icon size={20} />
+                <Icon size={24} />
               </button>
             )
           }
@@ -62,7 +62,7 @@ const ActivityBar: FC<ActivityBarProps> = ({ onToggleExplorer }) => {
           return (
             <Link href={path} key={path}>
               <div className={common}>
-                <Icon size={20} />
+                <Icon size={24} />
               </div>
             </Link>
           )

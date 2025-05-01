@@ -12,7 +12,7 @@ const ComingSoon: FC<ComingSoonProps> = ({
   title = '🚧 Coming Soon! 🚧',
   subtitle = 'Stay tuned for updates…',
 }) => (
-  <div className="flex flex-col items-center justify-center h-full w-full bg-bg-main text-fg-main">
+  <div className="bg-black flex flex-col items-center justify-center h-full w-full">
     <h1 className="text-4xl font-extrabold mb-2 animate-pulse">{title}</h1>
     <p className="text-gray-400">{subtitle}</p>
   </div>

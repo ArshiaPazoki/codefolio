@@ -25,9 +25,9 @@ export default function RootLayout({
   const [explorerOpen, setExplorerOpen] = useState(true)
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
+      <body className="flex flex-col h-screen antialiased">
         <Titlebar />
-        <div className="flex flex-1 overflow-hidden">
+        <div className="flex flex-1 h-full overflow-hidden">
           <ActivityBar onToggleExplorer={() => setExplorerOpen(o => !o)}/>
           <Explorer isOpen={explorerOpen} />
           {/* Updated: make this flex-col & h-full */}

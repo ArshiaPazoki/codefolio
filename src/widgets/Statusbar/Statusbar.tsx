@@ -9,7 +9,7 @@ import { useCurrentTime } from '@/shared/lib/useCurrentTime'
 const Statusbar: FC = () => {
     const currentTime = useCurrentTime()
     return (
-  <footer className="flex items-center justify-between h-6 bg-[#007acc] text-white text-[11px] font-sans select-none">
+  <footer className="flex items-center justify-between h-6 bg-[#ff0000] text-white text-[11px] font-sans select-none">
     {/* Left side: branch, sync, more */}
     <div className="flex items-center space-x-2 px-2">
       <Code size={12} />
