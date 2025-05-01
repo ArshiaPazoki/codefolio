@@ -1,19 +1,18 @@
 // src/app/layout.tsx
 import './globals.css'
-import { Geist, Geist_Mono } from 'next/font/google'
+// import { Geist, Geist_Mono } from 'next/font/google'
 import Titlebar from '../widgets/TitleBar/Titlebar'
 import Statusbar from '../widgets/Statusbar/Statusbar'
 import ActivityBar from '../widgets/ActivityBar/ActivityBar'
-// import Sidebar from '@/widgets/Sidebar/Sidebar'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+// const geistSans = Geist({
+//   variable: '--font-geist-sans',
+//   subsets: ['latin'],
+// })
+// const geistMono = Geist_Mono({
+//   variable: '--font-geist-mono',
+//   subsets: ['latin'],
+// })
 
 export default function RootLayout({
   children,
