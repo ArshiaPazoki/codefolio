@@ -20,7 +20,7 @@ const Statusbar: FC = () => {
     </div>
 
     {/* Center: filler to allow right alignment */}
-    <div className="flex-1">{currentTime}</div>
+    <div className="flex-1" suppressHydrationWarning>{currentTime}</div>
     {/* Right side: cursor position, spaces, encoding, eol, language */}
     <div className="flex items-center space-x-4 px-2">
       <span>Powered by Next.js v{nextVersion}</span>

@@ -1,0 +1,78 @@
+// src/widgets/ActivityBar/ActivityBar.tsx
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { FC } from 'react'
+import {
+  VscFiles,
+  VscGithubAlt,
+  VscCode,
+  VscEdit,
+  VscMail,
+  VscAccount,
+  VscSettings,
+} from 'react-icons/vsc'
+import { Columns } from 'lucide-react'
+
+const topItems = [
+  { Icon: VscFiles, path: '/' },
+  { Icon: VscGithubAlt, path: '/github' },
+  { Icon: VscCode, path: '/projects' },
+  { Icon: VscEdit, path: '/articles' },
+  { Icon: VscMail, path: '/contact' },
+]
+
+const bottomItems = [
+  { Icon: VscAccount, path: '/about' },
+  { Icon: VscSettings, path: '/settings' },
+]
+
+const ActivityBar: FC = () => {
+  const pathname = usePathname()
+  return (
+    <aside className="flex flex-col justify-between w-12 bg-[#1e1e1e] select-none h-full">
+      {/* Top section */}
+      <div className="flex flex-col items-center space-y-2">
+        {topItems.map(({ Icon, path }) => {
+          const active = pathname === path
+          return (
+            <Link href={path} key={path}>
+              <div
+                className={
+                  `flex items-center justify-center w-10 h-10 rounded ${
+                    active ? 'bg-[#3f3f46] text-white' : 'text-[#858585] hover:bg-[#37373d]'
+                  }`
+                }
+              >
+                <Icon size={20} />
+              </div>
+            </Link>
+          )
+        })}
+      </div>
+
+      {/* Bottom section */}
+      <div className="flex flex-col items-center space-y-2">
+        {bottomItems.map(({ Icon, path }) => {
+          const active = pathname === path
+          return (
+            <Link href={path} key={path}>
+              <div
+                className={
+                  `flex items-center justify-center w-10 h-10 rounded ${
+                    active ? 'bg-[#3f3f46] text-white' : 'text-[#858585] hover:bg-[#37373d]'
+                  }`
+                }
+              >
+                <Icon size={20} />
+              </div>
+            </Link>
+          )
+        })}
+      </div>
+    </aside>
+  )
+}
+
+export default ActivityBar

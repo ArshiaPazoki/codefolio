@@ -3,6 +3,7 @@ import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Titlebar from '../widgets/TitleBar/Titlebar'
 import Statusbar from '../widgets/Statusbar/Statusbar'
+import ActivityBar from '../widgets/ActivityBar/ActivityBar'
 // import Sidebar from '@/widgets/Sidebar/Sidebar'
 
 const geistSans = Geist({
@@ -20,39 +21,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
-    >
-      <body className="flex flex-col h-screen bg-bg-main text-fg-main antialiased">
-        {/* VSCode-style shell */}
+    <html lang="en">
+      <body className="flex flex-col h-screen">
         <Titlebar />
+        <div className="flex flex-1 overflow-hidden">
+          <ActivityBar />
 
-        <div className="flex flex-1 overflow-x-hidden bg-bg-main">
-          {/* Sidebar (folder explorer, etc.) */}
-          {/* <Sidebar /> */}
-
-          {/* Main content area (formerly .content) */}
-          <main
-            className="
-              p-8
-              text-fg-main
-              font-mono
-              flex-1
-              h-[85vh]
-              overflow-y-auto
-              scroll-smooth
-              overflow-x-hidden
-              flex
-              items-center
-              scrollbar-thin
-              scrollbar-thumb-accent
-            "
-          >
+          {/* Updated: make this flex-col & h-full */}
+          <main className="flex flex-col flex-1 h-full overflow-auto">
             {children}
           </main>
         </div>
-        <Statusbar/>
+        <Statusbar />
       </body>
     </html>
   )
