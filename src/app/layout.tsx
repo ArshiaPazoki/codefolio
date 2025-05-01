@@ -2,6 +2,7 @@
 import './globals.css'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Titlebar from '../widgets/TitleBar/Titlebar'
+import Statusbar from '../widgets/Statusbar/Statusbar'
 // import Sidebar from '@/widgets/Sidebar/Sidebar'
 
 const geistSans = Geist({
@@ -51,6 +52,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <Statusbar/>
       </body>
     </html>
   )
