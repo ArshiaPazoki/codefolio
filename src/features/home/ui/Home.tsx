@@ -1,6 +1,6 @@
 // src/features/home/ui/Home.tsx
 'use client'
-import { useDeveloperInfo } from '../model/useDeveloperInfo'
+// import { useDeveloperInfo } from '../model/useDeveloperInfo'
 import { useActiveLine } from '../lib/useActiveLine'
 import CodeEditor from '../../../widgets/CodeEditor/CodeEditor'
 
@@ -18,7 +18,7 @@ export default Hello;
 `
 
 export default function Home() {
-  const { name, role, bio } = useDeveloperInfo()
+  // const { name, role, bio } = useDeveloperInfo()
   const activeLine = useActiveLine(2000)
 
   return (
