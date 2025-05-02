@@ -54,7 +54,7 @@ const IntroPane: FC = () => {
       {/* Vertical tabs + two-column skill grid */}
       <div className="flex flex-1 overflow-hidden">
         {/* Category navigation */}
-        <nav className="w-40 h flex-shrink-0 flex flex-col space-y-2 pr-4 border-r border-white-100">
+        <nav className="w-1/2 h flex-shrink-0 flex flex-col space-y-2 pr-4 border-r border-white-100">
           {categories.map(cat => (
             <button
               key={cat}
@@ -71,7 +71,7 @@ const IntroPane: FC = () => {
 
         {/* Skill list */}
         <div className="flex-1 pl-8">
-          <ul className="grid grid-cols-2 gap-2 text-gray-200 text-sm list-disc list-inside">
+          <ul className="grid grid-cols-1 gap-2 text-gray-200 text-sm list-disc list-inside">
             {skillGroups[activeCategory].map(skill => (
               <li key={skill}>{skill}</li>
             ))}
@@ -87,13 +87,13 @@ const Hero: FC = () => {
   return (
     <section className="flex h-full overflow-hidden">
       {/* Left: Code Editor */}
-      <div className="hidden md:block w-1/2 flex-1 h-full overflow-hidden">
+      <div className="hidden md:block w-1/2 h-full overflow-hidden">
         <CodeEditor
           code={codeLines.map(line => line.code).join('\n')}
           // code={`// const intro = () => {\n  console.log('Hello from Arshia!')\n}`/* or codeLines.join('\n') */}
           language="tsx"
           className="h-full"
-          highlightLines={[activeLine]}
+          // highlightLines={[activeLine]}
         />
       </div>
 
