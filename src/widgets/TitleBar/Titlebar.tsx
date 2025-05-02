@@ -17,7 +17,7 @@ const menuItems = [
 ]
 
 const Titlebar: FC = () => (
-  <header className="flex items-center justify-between h-8 bg-[#1e1e1e] text-[#cccccc] select-none px-3 box-border ">
+  <header className="w-full flex items-center justify-between h-8 bg-[#1e1e1e] text-[#cccccc] select-none px-3 box-border ">
     {/* Left: VSCode icon + menu */}
     <div className="flex items-center gap-2">
       <Image
@@ -27,7 +27,7 @@ const Titlebar: FC = () => (
         height={16}
         priority
       />
-      <nav className="flex gap-3 text-[12px] leading-8 font-sans">
+      <nav className="hidden sm:flex gap-3 text-[12px] leading-8 font-sans">
         {menuItems.map(item => (
           <span key={item} className="hover:text-white cursor-default">
             {item}

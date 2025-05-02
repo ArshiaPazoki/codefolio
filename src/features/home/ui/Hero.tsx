@@ -2,9 +2,9 @@
 'use client'
 
 import { FC, useState } from 'react'
-import CodeEditor from '@/widgets/CodeEditor/CodeEditor'
-import { useActiveLine } from '@/features/home/lib/useActiveLine'
-import { codeLines } from '@/shared/configs/homeConfig'
+import CodeEditor from '../../../widgets/CodeEditor/CodeEditor'
+import { useActiveLine } from '../../../features/home/lib/useActiveLine'
+import { codeLines } from '../../../shared/configs/homeConfig'
 // Group skills by category
 const skillGroups: Record<string, string[]> = {
   'Programming Languages': [
@@ -87,7 +87,7 @@ const Hero: FC = () => {
   return (
     <section className="flex h-full overflow-hidden">
       {/* Left: Code Editor */}
-      <div className="w-1/2 bg-[#1e1e1e]">
+      <div className="hidden md:block w-1/2 flex-1 h-full overflow-hidden">
         <CodeEditor
           code={codeLines.map(line => line.code).join('\n')}
           // code={`// const intro = () => {\n  console.log('Hello from Arshia!')\n}`/* or codeLines.join('\n') */}
@@ -98,7 +98,7 @@ const Hero: FC = () => {
       </div>
 
       {/* Right: Intro + Skills */}
-      <div className="w-1/2 h-full bg-bg-main text-fg-main overflow-hidden">
+      <div className="w-full md:w-1/2 h-full bg-bg-main text-fg-main overflow-hidden">
         <IntroPane />
       </div>
     </section>
