@@ -46,7 +46,7 @@ const Statusbar: FC = () => {
 
       {/* Center clock - absolute centered */}
       <div className="absolute inset-x-0 flex justify-center pointer-events-none">
-        <span className="truncate px-4 bg-[rgba(0,0,0,0.2)] rounded">
+        <span className="truncate px-4 bg-[rgba(0,0,0,0.3)] rounded">
           {currentTime}
         </span>
       </div>
