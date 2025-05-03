@@ -10,7 +10,6 @@ import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
 import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
 import html from 'react-syntax-highlighter/dist/esm/languages/prism/markup'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { MdHeight } from 'react-icons/md'
 // const vscDarkPlus = oneDark;
 
 const customTheme = {
