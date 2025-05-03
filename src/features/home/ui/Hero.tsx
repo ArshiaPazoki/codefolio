@@ -5,30 +5,7 @@ import { FC, useState } from 'react'
 import CodeEditor from '../../../widgets/CodeEditor/CodeEditor'
 import { useActiveLine } from '../../../features/home/lib/useActiveLine'
 import { codeLines } from '../../../shared/configs/homeConfig'
-// Group skills by category
-const skillGroups: Record<string, string[]> = {
-  'Programming Languages': [
-    'C', 'C++','C#','JavaScript', 'ECMAScript', 'TypeScript', 'Python',  'Java',  'Go', 'SQL'
-  ],
-  'Front-End Frameworks': [
-    'React.js', 'Redux.js', 'Svelte', 'Bootstrap', 'Ant Design'
-  ],
-  'Back-End & APIs': [
-    'Next.js', 'Node.js', 'Flask', 'Django', 'REST APIs', 'Elastic Stack'
-  ],
-  'Testing & Automation': [
-    'Selenium', 'Cypress', 'Appium', 'Robot Framework', 'k6 Load Testing'
-  ],
-  'DevOps & Infrastructure': [
-    'Docker', 'Git', 'Linux', 'MySQL', 'HPC'
-  ],
-  'Data & AI': [
-    'Machine Learning', 'Data Science', 'Computer Vision', 'OpenCV'
-  ],
-  'Principles & Methodologies': [
-    'SOLID', 'OOP', 'Agile', 'Algorithms', 'Data Structures'
-  ]
-}
+import { skillGroups } from '@/shared/configs/skills'
 
 const IntroPane: FC = () => {
   const categories = Object.keys(skillGroups)
@@ -39,7 +16,7 @@ const IntroPane: FC = () => {
       <h1 className="text-xl font-bold leading-tight mb-4">
         Hi, I’m 
         <br />
-        <span className="text-5xl text-blue-500">&lt;Arshia Pazoki /&gt;</span>
+        <span className="text-5xl text-blue-500 hover:text-red-600 animate-pulse">&lt;Arshia Pazoki /&gt;</span>
       </h1>
       <p className="text-xl text-gray-400 mb-6">
         Senior Test Automation Engineer &amp; SDET 

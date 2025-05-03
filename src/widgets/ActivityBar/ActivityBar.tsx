@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
 import {
+  VscHome,
   VscFiles,
   VscGithubAlt,
   VscCode,
@@ -20,7 +21,8 @@ export interface ActivityBarProps {
 }
 
 const topItems = [
-  { Icon: VscFiles,       path: '/' },
+  { Icon: VscHome,       path: '/' },
+  { Icon: VscFiles,       path: '' },
   { Icon: VscGithubAlt,   path: '/github' },
   { Icon: VscCode,        path: '/projects' },
   { Icon: VscEdit,        path: '/articles' },
@@ -42,12 +44,12 @@ const ActivityBar: FC<ActivityBarProps> = ({ onToggleExplorer }) => {
         {topItems.map(({ Icon, path }) => {
           const active = pathname === path
           const baseClasses = active
-            ? 'bg-[#3f3f46] text-white'
-            : 'text-[#858585] hover:bg-[#37373d]'
-          const common = `flex items-center justify-center w-10 h-10 rounded ${baseClasses}`
+            ? 'border-l-2 border-white text-white'
+            : 'text-[#858585] hover:border-l-2 hover:text-white'
+          const common = `flex items-center justify-center w-10 h-10  ${baseClasses}`
 
           // The VSCode Files icon toggles the Explorer pane
-          if (path === '/') {
+          if (path === '') {
             return (
               <button
                 key={path}
@@ -74,12 +76,14 @@ const ActivityBar: FC<ActivityBarProps> = ({ onToggleExplorer }) => {
         {bottomItems.map(({ Icon, path }) => {
           const active = pathname === path
           const baseClasses = active
-            ? 'bg-[#3f3f46] text-white'
-            : 'text-[#858585] hover:bg-[#37373d]'
+            ? 'border-l-2 border-white text-white'
+            : 'text-[#858585] hover:border-l-2 hover:text-white'
+            // ? 'bg-[#3f3f46] text-white'
+            // : 'text-[#858585] hover:bg-[#37373d]'
           return (
             <Link href={path} key={path}>
               <div className={`flex items-center justify-center w-10 h-10 rounded ${baseClasses}`}>
-                <Icon size={20} />
+                <Icon size={24} />
               </div>
             </Link>
           )
