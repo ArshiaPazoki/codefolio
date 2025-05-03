@@ -6,6 +6,8 @@
 export const skillGroups: Record<string, string[]> = {
     // Testing & Quality
     'Testing & Quality': [
+      'Selenium',
+      'Beautiful Soup (bs4)',
       'Cypress',
       'Robot Framework',
       'Appium',

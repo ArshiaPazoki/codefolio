@@ -13,6 +13,7 @@ import {
   VscMail,
   VscAccount,
   VscSettings,
+  VscGitCommit,
 } from 'react-icons/vsc'
 
 export interface ActivityBarProps {
@@ -21,12 +22,13 @@ export interface ActivityBarProps {
 }
 
 const topItems = [
-  { Icon: VscHome,       path: '/' },
   { Icon: VscFiles,       path: '' },
+  { Icon: VscGitCommit,        path: '/timeline' },
   { Icon: VscGithubAlt,   path: '/github' },
   { Icon: VscCode,        path: '/projects' },
   { Icon: VscEdit,        path: '/articles' },
   { Icon: VscMail,        path: '/contact' },
+  { Icon: VscHome,        path: '/' },
 ]
 
 const bottomItems = [
