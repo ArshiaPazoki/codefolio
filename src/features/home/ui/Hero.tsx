@@ -93,7 +93,7 @@ const Hero: FC = () => {
           // code={`// const intro = () => {\n  console.log('Hello from Arshia!')\n}`/* or codeLines.join('\n') */}
           language="tsx"
           className="h-full"
-          // highlightLines={[activeLine]}
+          highlightLines={[activeLine]}
         />
       </div>
 

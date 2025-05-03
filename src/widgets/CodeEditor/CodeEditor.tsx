@@ -97,7 +97,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
         showInlineLineNumbers={false}
         lineProps={(lineNumber) => ({
           style: highlightLines.includes(lineNumber - 1)
-            ? { display: 'block', backgroundColor: 'rgba(38, 143, 255, 0.15)' }
+            ? { display: 'block',backgroundColor: 'rgba(38, 143, 255, 0.15)' }
             : {},
         })}
       >
