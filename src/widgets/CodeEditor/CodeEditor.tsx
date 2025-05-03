@@ -10,6 +10,7 @@ import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
 import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
 import html from 'react-syntax-highlighter/dist/esm/languages/prism/markup'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { MdHeight } from 'react-icons/md'
 // const vscDarkPlus = oneDark;
 
 const customTheme = {
@@ -24,6 +25,7 @@ const customTheme = {
     fontFamily: 'Consolas, Courier New, monospace',
     fontSize: '0.9rem',
     lineHeight: '1.4',
+    height: '100vh'
   },
   'code[class*="language-"]': {
     background: 'none',

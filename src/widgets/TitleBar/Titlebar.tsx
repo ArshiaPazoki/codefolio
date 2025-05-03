@@ -16,6 +16,21 @@ const menuItems = [
   'Help',
 ]
 
+const handleFullscreen = () => {
+  const element = document.documentElement;
+  if (!document.fullscreenElement){
+
+    if (element.requestFullscreen){
+      element.requestFullscreen();
+    }
+  }else{
+    if (document.exitFullscreen){
+      document.exitFullscreen();
+    }
+  }
+  // TODO Also for other browsers like safari
+}
+
 const Titlebar: FC = () => (
   <header className="w-full flex items-center justify-between h-8 bg-[#1e1e1e] text-[#cccccc] select-none px-1.5 box-border ">
     {/* Left: VSCode icon + menu */}
@@ -63,7 +78,7 @@ const Titlebar: FC = () => (
       <button aria-label="Minimize" className="flex items-center justify-center w-8 h-full hover:text-[#404040]">
         <Minus size={16} strokeWidth={2} />
       </button>
-      <button aria-label="Maximize" className="flex items-center justify-center w-8 h-full hover:text-[#404040]">
+      <button onClick={handleFullscreen} aria-label="Maximize" className="flex items-center justify-center w-8 h-full hover:text-[#404040]">
         <Square size={16} strokeWidth={2} />
       </button>
       <button aria-label="Close" className="flex items-center justify-center w-8 h-full hover:text-[#E81123]">
