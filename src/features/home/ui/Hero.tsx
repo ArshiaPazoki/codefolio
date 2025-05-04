@@ -45,7 +45,7 @@ const IntroPane: FC = () => {
       <h1 className="text-xl font-bold mb-4">
         Hi, I’m
         <br />
-        <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-text">
+        <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-textShift">
           &lt;Arshia Pazoki /&gt;
         </span>
       </h1>
@@ -93,6 +93,7 @@ const IntroPane: FC = () => {
 
         {/* Mobile dropdown */}
         <div className="sm:hidden p-4 border-b border-gray-700">
+          <p className='p-2 mb-2 text-center border-1 rounded-lg border-blue-600'>Expertise & Tools</p>
           <select
             value={activeCategory}
             onChange={(e) => setActiveCategory(e.target.value)}

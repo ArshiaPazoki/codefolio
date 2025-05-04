@@ -10,6 +10,15 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  @keyframes textShift {
+    0%, 100% { background-position: 0% 50% }
+    50%      { background-position: 100% 50% }
+  }
+
+  .animate-textShift {
+    animation: textShift 1s ease infinite;
+  }
 }
 
 html,
