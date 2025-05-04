@@ -25,7 +25,7 @@ const customTheme = {
     fontSize: '0.9rem',
     lineHeight: '1.4',
     height: '100%',
-    width: '100%'
+    width: '100vh'
   },
   'code[class*="language-"]': {
     background: 'none',
@@ -74,7 +74,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
   }, [code])
 
   return (
-    <div className={`${className} rounded-md overflow-hidden shadow-lg`}>
+    <div className={`${className} rounded-md overflow-auto no-scrollbar shadow-lg`}>
       <SyntaxHighlighter
         language={language}
         style={customTheme}
