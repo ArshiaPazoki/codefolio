@@ -80,7 +80,7 @@ const IntroPane: FC = () => {
               className={clsx(
                 'text-sm text-left px-2 py-2 rounded-lg focus:outline-none flex items-center justify-between',
                 activeCategory === cat
-                  ? 'border-2 border-[#007acc] text-white'
+                  ? 'border-2 border-blue-600 text-white'
                   : 'text-gray-400 hover:bg-gray-800'
               )}
               aria-current={activeCategory === cat ? 'true' : undefined}
@@ -117,7 +117,7 @@ const IntroPane: FC = () => {
               placeholder="Search skills…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-10 pr-4 w-full bg-[#252526] text-white placeholder-gray-500 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-500"
+              className="pl-10 pr-4 w-full bg-[#252526] text-white placeholder-gray-500 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-600"
             />
           </div>
 
@@ -127,7 +127,7 @@ const IntroPane: FC = () => {
               {filteredSkills.map((skill) => (
                 <li
                   key={skill}
-                  className="px-2 py-2 bg-[#2d2d2d] rounded-lg hover:bg-[#3a3a3a] transition"
+                  className="text-sm px-2 py-2 border-2 border-[#2d2d2d] rounded-lg hover:border-blue-600 transition"
                 >
                   {skill}
                 </li>
