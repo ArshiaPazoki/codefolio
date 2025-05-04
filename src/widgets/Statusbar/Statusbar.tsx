@@ -2,7 +2,7 @@
 'use client'
 
 import { FC, memo } from 'react'
-import { GitBranch, RefreshCw, MoreHorizontal } from 'lucide-react'
+import { MoreHorizontal } from 'lucide-react'
 import { version as nextVersion } from 'next/package.json'
 import { useCurrentTime } from '@/shared/lib/useCurrentTime'
 import { VscRemote, VscSync, VscGitPullRequest  } from 'react-icons/vsc'
