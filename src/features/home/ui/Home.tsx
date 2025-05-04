@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     // <div className="flex items-center justify-center bg-bg-main h-full">
-    <div className="flex flex-1 w-full h-full items-center justify-center bg-bg-main">
+    <div className="flex flex-1 w-full h-screen items-center justify-center bg-bg-main">
       <CodeEditor
         // code={codeLines.join('\n')}
         code={sampleCode}

@@ -31,7 +31,7 @@ const handleFullscreen = () => {
   // TODO Also for other browsers like safari
 }
 
-const Titlebar: FC = () => (
+const MenuBar: FC = () => (
   <header className="w-full flex items-center justify-between h-8 bg-[#1e1e1e] text-[#cccccc] select-none px-1.5 box-border ">
     {/* Left: VSCode icon + menu */}
     <div className="flex items-center gap-2">
@@ -88,4 +88,4 @@ const Titlebar: FC = () => (
   </header>
 )
 
-export default Titlebar
+export default MenuBar

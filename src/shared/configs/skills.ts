@@ -5,18 +5,18 @@
 
 export const skillGroups: Record<string, string[]> = {
     // Testing & Quality
-    'Testing & Quality': [
+    'Software Testing & Quality Assurance': [
       'Selenium',
-      'Beautiful Soup (bs4)',
+      'Playwright',
       'Cypress',
+      'Beautiful Soup (bs4)',
       'Robot Framework',
       'Appium',
-      'Pact',
       'Test Planning',
+      'Pact',
       'API Testing',
       'Data Validation',
       'k6 Load Testing',
-      'Playwright',
     ],
   
     // Programming Languages & Ecosystems

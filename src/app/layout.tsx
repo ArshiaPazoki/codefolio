@@ -4,7 +4,7 @@
 import './globals.css'
 import { useState } from 'react'
 // import { Geist, Geist_Mono } from 'next/font/google'
-import Titlebar from '../widgets/TitleBar/Titlebar'
+import Titlebar from '../widgets/MenuBar/MenuBar'
 import Statusbar from '../widgets/Statusbar/Statusbar'
 import ActivityBar from '../widgets/ActivityBar/ActivityBar'
 import Explorer from '../widgets/Explorer/Explorer'
