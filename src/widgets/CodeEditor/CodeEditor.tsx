@@ -24,7 +24,8 @@ const customTheme = {
     fontFamily: 'Consolas, Courier New, monospace',
     fontSize: '0.9rem',
     lineHeight: '1.4',
-    height: '100%'
+    height: '100%',
+    width: '100%'
   },
   'code[class*="language-"]': {
     background: 'none',
