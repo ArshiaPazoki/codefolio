@@ -148,9 +148,9 @@ const IntroPane: FC = () => {
 const Hero: FC = () => {
   const activeLine = useActiveLine(500)
   return (
-    <section className="max-h-screen w-full flex flex-col sm:flex-row overflow-hidden no-scrollbar">
+    <section className="max-h-screen w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
       {/* Code editor only on sm+ */}
-      <div className="hidden sm:flex sm:w-1/2 bg-[#1e1e1e]">
+      <div className=" sm:w-1/2 bg-[#1e1e1e] order-2 sm:order-1">
         <CodeEditor
           code={codeLines.map(line => line.code).join('\n')}
           language="tsx"
