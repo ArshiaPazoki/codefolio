@@ -70,7 +70,7 @@ const IntroPane: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 overflow-hidden bg-[#1e1e1e] rounded-lg shadow-lg">
+      <div className="flex flex-1 flex-col sm:flex-row overflow-hidden bg-[#1e1e1e] rounded-lg shadow-lg">
         {/* Category navigation */}
         <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 sticky top-0 overflow-auto no-scrollbar">
           {categories.map((cat) => (
