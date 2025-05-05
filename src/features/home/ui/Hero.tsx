@@ -19,11 +19,14 @@ const IntroPane: FC = () => {
   const onKey = useCallback(
     (e: KeyboardEvent) => {
       const idx = categories.indexOf(activeCategory)
-      if (e.key === 'ArrowRight' && idx < categories.length - 1) {
+      if ((e.key === 'ArrowRight' || e.key ==='ArrowDown') && idx < categories.length - 1) {
         setActiveCategory(categories[idx + 1])
       }
-      if (e.key === 'ArrowLeft' && idx > 0) {
+      if ((e.key === 'ArrowLeft' || e.key ==='ArrowUp') && idx > 0) {
         setActiveCategory(categories[idx - 1])
+      }
+      if (e.key === 'Enter' && idx > 0) {
+        setActiveCategory(categories[idx])
       }
     },
     [activeCategory]
@@ -45,7 +48,7 @@ const IntroPane: FC = () => {
       <h1 className="text-xl font-bold mb-4">
         Hi, I’m
         <br />
-        <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-textShift">
+        <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-pulse">
           &lt;Arshia Pazoki /&gt;
         </span>
       </h1>
@@ -70,9 +73,11 @@ const IntroPane: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col sm:flex-row overflow-hidden bg-[#1e1e1e] rounded-lg shadow-lg">
+      <div className="flex flex-1 flex-col sm:flex-row overflow-auto bg-[#1e1e1e] rounded-lg shadow-lg">
         {/* Category navigation */}
-        <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 sticky top-0 overflow-auto no-scrollbar">
+        <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 top-0">
+        <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-600'>Expertise &amp; Tools</p>
+        <div className="overflow-y-auto no-scrollbar h-full">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -80,7 +85,7 @@ const IntroPane: FC = () => {
               className={clsx(
                 'text-sm text-left px-2 py-2 rounded-lg focus:outline-none flex items-center justify-between',
                 activeCategory === cat
-                  ? 'border-2 border-blue-600 text-white'
+                  ? 'border-l-2 border-blue-600 rounded-none text-white'
                   : 'text-gray-400 hover:bg-gray-800'
               )}
               aria-current={activeCategory === cat ? 'true' : undefined}
@@ -89,6 +94,7 @@ const IntroPane: FC = () => {
               {activeCategory === cat && <FiChevronRight size={16} />}
             </button>
           ))}
+          </div>
         </nav>
 
         {/* Mobile dropdown */}
