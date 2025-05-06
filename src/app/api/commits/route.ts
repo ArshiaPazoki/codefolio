@@ -2,7 +2,20 @@
 import { NextResponse } from 'next/server'
 
 const GITHUB_GRAPHQL = 'https://api.github.com/graphql'
-
+interface RawCommitNode {
+    oid: string;
+    messageHeadline: string;
+    committedDate: string;
+    url: string;
+    author: {
+      name: string;
+      email: string;
+      user?: { login: string | null } | null;
+    };
+    parents: {
+      nodes: { oid: string }[];
+    };
+  }
 export async function GET() {
   const token = process.env.GITHUB_TOKEN
   if (!token) {
@@ -61,18 +74,20 @@ export async function GET() {
   }
 
   const json = await res.json()
-  const commits = json.data.repository.defaultBranchRef.target.history.nodes.map(
-    (c: any) => ({
-      oid: c.oid.slice(0, 7),
-      message: c.messageHeadline,
-      date: c.committedDate,
-      url: c.url,
-      authorName: c.author.name,
-      authorEmail: c.author.email,
-      authorLogin: c.author.user?.login || null,
-      parents: c.parents.nodes.map((p: any) => p.oid.slice(0, 7)),
-    })
-  )
+  const commits = (
+    json.data.repository
+      .defaultBranchRef!.target as { history: { nodes: RawCommitNode[] } }
+  ).history.nodes.map((c: RawCommitNode) => ({
+    oid:         c.oid.slice(0, 7),
+    message:     c.messageHeadline,
+    date:        c.committedDate,
+    url:         c.url,
+    authorName:  c.author.name,
+    authorEmail: c.author.email,
+    authorLogin: c.author.user?.login || null,
+    parents:     c.parents.nodes.map((p) => p.oid.slice(0, 7)),
+  })
+)
 
   return NextResponse.json(commits)
 }
