@@ -22,18 +22,42 @@ export default function InteractiveGitGraph() {
 
   // 2) Fetch on mount
   useEffect(() => {
-    ;(async () => {
+    // Create an AbortController so we can cancel the fetch if the component unmounts
+    const controller = new AbortController()
+    const signal = controller.signal
+
+    // Define the async load function
+    async function loadCommits() {
       try {
-        const res = await fetch('/api/commits')
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        const data: Commit[] = await res.json()
+        const res = await fetch('/api/commits', { signal })
+        if (!res.ok) {
+          throw new Error(`Unexpected status ${res.status}`)
+        }
+        // we know our API returns Commit[], so cast here
+        const data = (await res.json()) as Commit[]
         setCommits(data)
-      } catch (e: any) {
-        console.error(e)
-        setError(e.message || 'Unknown error')
-        setCommits([])
+      } catch (maybeError: unknown) {
+        // Ignore cancellation errors
+        if (maybeError instanceof DOMException && maybeError.name === 'AbortError') {
+          return
+        }
+        // Normalize any other thrown value to a string
+        const message =
+          maybeError instanceof Error
+            ? maybeError.message
+            : String(maybeError)
+        console.error('Failed to load commits:', message)
+        setError(message)
+        setCommits([]) // show “no commits” rather than stuck in loading
       }
-    })()
+    }
+
+    loadCommits()
+
+    // cleanup: abort in-flight request on unmount
+    return () => {
+      controller.abort()
+    }
   }, [])
 
   // 3) Build unique hashes (always runs, even if commits is null)
