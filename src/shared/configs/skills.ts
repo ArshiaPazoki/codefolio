@@ -114,6 +114,10 @@ export const skillGroups: Record<string, string[]> = {
       'ROS',
       'ROS2',
       'Gazebo',
+      'webots',
+      'rviz',
+      'URDF & xacro',
+      'IMUs & Sensors',
       'Robotics',
     ],
   
