@@ -85,7 +85,7 @@ export default function InteractiveGitGraph() {
     <div className="p-4 bg-[#1e1e1e] rounded-lg shadow-lg">
       <div className=" border-[#333] rounded">
         {/* <Gitgraph options={{ template: metroTemplate, orientation:Orientation.Horizontal }}> */}
-        <Gitgraph>
+        <Gitgraph options={{ template: metroTemplate}}>
           {(gitgraph) => {
             if (didRender.current) return
             didRender.current = true
