@@ -138,7 +138,6 @@ export default function InteractiveGitGraph() {
   return (
     <div className="p-4 bg-[#1e1e1e] rounded-lg shadow-lg">
       <div className=" border-[#333] rounded">
-        {/* <Gitgraph options={{ template: metroTemplate, orientation:Orientation.Horizontal }}> */}
         <Gitgraph options={{
           template: vsCodeTemplate,
           branchLabelOnEveryCommit: true,
@@ -151,7 +150,7 @@ export default function InteractiveGitGraph() {
             const main = gitgraph.branch({ name: 'main' })
             commitsWithHashes.forEach((c) => {
               main.commit({
-                hash:    c.graphHash,
+                hash:    `#${c.graphHash}`,
                 subject: c.message,
                 author: `${c.authorName} <${c.authorEmail}>`,
                 onClick: () => window.open(c.url, '_blank'),

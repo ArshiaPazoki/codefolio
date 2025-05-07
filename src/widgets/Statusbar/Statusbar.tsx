@@ -2,6 +2,7 @@
 'use client'
 
 import { FC, memo } from 'react'
+import { usePathname } from 'next/navigation'
 import { MoreHorizontal } from 'lucide-react'
 import { version as nextVersion } from 'next/package.json'
 import { useCurrentTime } from '@/shared/lib/useCurrentTime'
@@ -14,6 +15,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 const Statusbar: FC = () => {
   const currentTime = useCurrentTime()
+  const pathname = usePathname()
   const { data } = useSWR(
     'https://api.github.com/repos/ArshiaPazoki/codefolio/commits?per_page=1',
     fetcher,
@@ -21,7 +23,7 @@ const Statusbar: FC = () => {
   )
   const latest = data?.[0]?.commit
   const commitInfo = latest
-    ? `${latest.author.name} at ${new Date(latest.author.date)}`
+    ? `${latest.author.name} at ${new Date(latest.author.date).toUTCString()}`
     : ''
 
   return (
@@ -33,6 +35,7 @@ const Statusbar: FC = () => {
       {/* Left group: icons always visible; labels responsive */}
       <div className="flex items-center space-x-2 flex-shrink-0">
         <VscRemote size={14} className=''/>
+        <span className="hidden sm:inline">{pathname}</span>
         <div className="flex items-center space-x-1 whitespace-nowrap">
           <VscGitPullRequest size={14} />
           <span className="hidden sm:inline">main*</span>
@@ -54,8 +57,8 @@ const Statusbar: FC = () => {
       </div>
 
       {/* Right group: responsive labels */}
-      <div className="ml-auto flex items-center space-x-4 flex-shrink-0">
-        <span className="hidden md:inline">Powered by Next.js v{nextVersion}</span>
+      <div className="ml-auto flex items-center sm:space-x-2 flex-shrink-0">
+        <span className="inline">Powered by Next.js v{nextVersion}</span>
         <span className="hidden sm:inline">Ln 69, Col 1</span>
         <span className="hidden md:inline">Spaces: 2</span>
         <span className="hidden md:inline">UTF-8</span>
