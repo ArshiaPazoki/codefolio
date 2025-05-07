@@ -31,11 +31,11 @@ export default function RootLayout({
           <ActivityBar onToggleExplorer={() => setExplorerOpen(o => !o)}/>
           <Explorer isOpen={explorerOpen} />
           {/* Updated: make this flex-col & h-full */}
-          <main className="flex flex-col flex-1 h-full overflow-auto">
+          <main className="flex flex-col flex-1 h-full overflow-auto no-scrollbar">
             {children}
           </main>
         </div>
-        <Statusbar />
+        <Statusbar/>
       </body>
     </html>
   )

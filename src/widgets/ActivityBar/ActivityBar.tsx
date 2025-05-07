@@ -14,6 +14,7 @@ import {
   VscAccount,
   VscSettings,
   VscGitCommit,
+  VscGitMerge,
 } from 'react-icons/vsc'
 
 export interface ActivityBarProps {
@@ -24,6 +25,7 @@ export interface ActivityBarProps {
 const topItems = [
   { Icon: VscFiles,       path: '' },
   { Icon: VscGitCommit,        path: '/timeline' },
+  { Icon: VscGitMerge,        path: '/commits' },
   { Icon: VscGithubAlt,   path: '/github' },
   { Icon: VscCode,        path: '/projects' },
   { Icon: VscEdit,        path: '/articles' },

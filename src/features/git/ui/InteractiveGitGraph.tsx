@@ -2,7 +2,7 @@
 'use client'
 
 import React, { useEffect, useState, useMemo, useRef } from 'react'
-import { Gitgraph, templateExtend, TemplateName } from '@gitgraph/react'
+import { Gitgraph, Orientation, templateExtend, TemplateName } from '@gitgraph/react'
 // import { Gitgraph, Orientation, templateExtend, TemplateName } from '@gitgraph/react'
 
 interface Commit {
@@ -71,10 +71,96 @@ export default function InteractiveGitGraph() {
 
   // 4) Prepare your Gitgraph template
   const metroTemplate = templateExtend(TemplateName.Metro, {
-    commit: { dot: { size: 6 } },
-    branch: { label: { font: '10px monospace', color: '#888' } },
+    colors: ["#D9D9D9", "#9678B6"],
+    // arrow:{
+    //   color: 'red',
+    // },
+    branch: {
+      lineWidth: 2,
+      // spacing: 50,
+      label: {
+        color: '#888',
+        bgColor: "#00000000",
+        font: '14px monospace',
+        strokeColor: '#007acc',
+        borderRadius: 5,
+      },
+
+    },
+    commit: {
+      // spacing: 75,
+      dot: {
+        size: 8,
+      },
+      message: {
+        font: 'monospace',
+
+        displayHash: true,
+        displayAuthor: true,
+      },
+    },
   })
 
+  const vsCodeTemplate = templateExtend(TemplateName.Metro, {
+    // a palette pulled from VS Code Dark+ syntax theme
+    colors: [
+      '#569CD6', // keywords / branch lines
+      '#DCDCAA', // strings / commit dots
+      '#4EC9B0', // types / tags
+      '#C586C0', // functions
+      '#CE9178', // numbers / metadata
+    ],
+  
+    branch: {
+      color: '#569CD6',
+      spacing: 40,        // more room between parallel branches
+      lineWidth: 4,       // a bit thicker than default
+      label: {
+        font: '14px "Segoe UI", sans-serif',
+        color: '#9CDCFE',              // light blue text
+        bgColor: 'transparent',
+        strokeColor: '#569CD6',
+        borderRadius: 3,
+        // pointerWidth: 6,               // nice pointer
+      },
+    },
+  
+    commit: {
+      spacing: 60,        // more vertical padding
+      dot: {
+        size: 8,
+        color: '#1E1E1E',
+        strokeColor: '#569CD6', // dark bg stroke
+        strokeWidth: 2,
+      },
+      message: {
+        font: '18px "Courier New", monospace',
+        displayAuthor: true,    // show e.g. “Alice”
+        // displayBranch: false,   // hide branch name here
+        displayHash: true,      // show short SHA
+        color: '#CCCCCC',       // light gray text
+        // hashColor: '#6A9955',   // green like comments
+        // authorColor: '#CE9178', // orange for emphasis
+      },
+    },
+  
+    tag: {
+      font: 'italic 12px "Segoe UI", sans-serif',
+      color: '#007ACC',       // dark text
+      bgColor: 'transparent',     // turquoise badge
+      strokeColor: '#007ACC', // VS Code blue border
+      borderRadius: 2,
+      pointerWidth: 12,
+    },
+  
+    // arrow: {
+    //   color: '#007ACC',
+    //   offset: 2,
+    //   size: 10,
+    // },
+  })
+
+  
   // 5) Now you can safely guard with early returns:
   if (error)                return <div className="p-4 text-red-400">Error: {error}</div>
   if (commits === null)     return <div className="p-4">Loading commits…</div>
@@ -85,7 +171,11 @@ export default function InteractiveGitGraph() {
     <div className="p-4 bg-[#1e1e1e] rounded-lg shadow-lg">
       <div className=" border-[#333] rounded">
         {/* <Gitgraph options={{ template: metroTemplate, orientation:Orientation.Horizontal }}> */}
-        <Gitgraph options={{ template: metroTemplate}}>
+        <Gitgraph options={{
+          template: vsCodeTemplate,
+          branchLabelOnEveryCommit: true,
+          orientation: Orientation.VerticalReverse
+          }}>
           {(gitgraph) => {
             if (didRender.current) return
             didRender.current = true
@@ -97,6 +187,7 @@ export default function InteractiveGitGraph() {
                 subject: c.message,
                 author: `${c.authorName} <${c.authorEmail}>`,
                 onClick: () => window.open(c.url, '_blank'),
+                tag: 'v1',
               })
             })
           }}
