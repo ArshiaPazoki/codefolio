@@ -23,6 +23,7 @@ export interface ActivityBarProps {
 }
 
 const topItems = [
+  { Icon: VscHome,        path: '/' },
   { Icon: VscFiles,       path: '' },
   { Icon: VscGitCommit,        path: '/timeline' },
   { Icon: VscGitMerge,        path: '/commits' },
@@ -30,7 +31,6 @@ const topItems = [
   { Icon: VscCode,        path: '/projects' },
   { Icon: VscEdit,        path: '/articles' },
   { Icon: VscMail,        path: '/contact' },
-  { Icon: VscHome,        path: '/' },
 ]
 
 const bottomItems = [

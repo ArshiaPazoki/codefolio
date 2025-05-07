@@ -30,7 +30,7 @@ const Statusbar: FC = () => {
     <footer
       role="contentinfo"
       aria-label="Status Bar"
-      className="w-full flex items-center h-6 bg-blue-500 hover:bg-red-600 text-white text-[11px] font-sans select-none border-t border-[#333] px-2 sm:px-4"
+      className="w-full flex items-center h-6 bg-blue-500 hover:bg-red-600 text-white text-[12px] font-sans select-none px-2 sm:px-4"
     >
       {/* Left group: icons always visible; labels responsive */}
       <div className="flex items-center space-x-2 flex-shrink-0">
@@ -46,7 +46,7 @@ const Statusbar: FC = () => {
         <div className="hidden sm:flex items-center whitespace-nowrap">
           <MoreHorizontal size={14} className="hover:text-gray-200 cursor-pointer" />
         </div>
-        <span className="hidden md:inline">last commit by {commitInfo}</span>
+        <span className="truncate hidden md:inline">last commit by {commitInfo}</span>
       </div>
 
       {/* Center clock - absolute centered */}
