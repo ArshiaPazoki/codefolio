@@ -3,7 +3,6 @@
 
 import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { Gitgraph, Orientation, templateExtend, TemplateName } from '@gitgraph/react'
-// import { Gitgraph, Orientation, templateExtend, TemplateName } from '@gitgraph/react'
 
 interface Commit {
   oid: string
@@ -70,37 +69,6 @@ export default function InteractiveGitGraph() {
   }, [commits])
 
   // 4) Prepare your Gitgraph template
-  const metroTemplate = templateExtend(TemplateName.Metro, {
-    colors: ["#D9D9D9", "#9678B6"],
-    // arrow:{
-    //   color: 'red',
-    // },
-    branch: {
-      lineWidth: 2,
-      // spacing: 50,
-      label: {
-        color: '#888',
-        bgColor: "#00000000",
-        font: '14px monospace',
-        strokeColor: '#007acc',
-        borderRadius: 5,
-      },
-
-    },
-    commit: {
-      // spacing: 75,
-      dot: {
-        size: 8,
-      },
-      message: {
-        font: 'monospace',
-
-        displayHash: true,
-        displayAuthor: true,
-      },
-    },
-  })
-
   const vsCodeTemplate = templateExtend(TemplateName.Metro, {
     // a palette pulled from VS Code Dark+ syntax theme
     colors: [
