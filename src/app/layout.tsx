@@ -8,6 +8,7 @@ import Titlebar from '../widgets/MenuBar/MenuBar'
 import Statusbar from '../widgets/Statusbar/Statusbar'
 import ActivityBar from '../widgets/ActivityBar/ActivityBar'
 import Explorer from '../widgets/Explorer/Explorer'
+import Terminal from '../widgets/Terminal/Terminal'
 // const geistSans = Geist({
 //   variable: '--font-geist-sans',
 //   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const [explorerOpen, setExplorerOpen] = useState(false)
+  const [termianlOpen, setTerminalOpen] = useState(false)
   return (
     <html lang="en">
       <body className="flex flex-col h-full antialiased">
@@ -36,6 +38,11 @@ export default function RootLayout({
           </main>
         </div>
         <Statusbar/>
+      <div className="absolute h-1/3 bottom-7 left-0 right-0 pointer-events-none flex justify-center z-50">
+            <div className="pointer-events-auto ml-12 w-full sm:w-3/4 lg:w-full h-full mx-auto">
+              <Terminal isOpen={termianlOpen} prompt=">" />
+            </div>
+          </div>
       </body>
     </html>
   )

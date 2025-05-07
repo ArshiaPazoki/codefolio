@@ -8,7 +8,7 @@ import { codeLines } from '../../../shared/configs/homeConfig'
 import { skillGroups } from '@/shared/configs/skills'
 import { FiChevronRight, FiSearch, FiExternalLink } from 'react-icons/fi'
 import clsx from 'clsx'
-
+import Link from 'next/link'
 const IntroPane: FC = () => {
   const categories = Object.keys(skillGroups)
   const [activeCategory, setActiveCategory] = useState<string>(categories[0])
@@ -52,9 +52,8 @@ const IntroPane: FC = () => {
           &lt;Arshia Pazoki /&gt;
         </span>
       </h1>
-
       <p className="text-xl text-gray-400 mb-6">
-        Senior Test Automation Engineer & SDET
+        Senior Test Automation Engineer & SDET @ <Link href="https://asax.ir/" className='hover:text-red-600'>Asa.Co</Link>
       </p>
 
       <div className="flex space-x-4 mb-6">

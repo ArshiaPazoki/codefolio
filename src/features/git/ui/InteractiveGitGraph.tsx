@@ -84,7 +84,7 @@ export default function InteractiveGitGraph() {
       spacing: 40,        // more room between parallel branches
       lineWidth: 4,       // a bit thicker than default
       label: {
-        font: '14px "Segoe UI", sans-serif',
+        font: '18px "Segoe UI", sans-serif',
         color: '#9CDCFE',              // light blue text
         bgColor: 'transparent',
         strokeColor: '#569CD6',
@@ -94,7 +94,7 @@ export default function InteractiveGitGraph() {
     },
   
     commit: {
-      spacing: 60,        // more vertical padding
+      spacing: 40,        // more vertical padding
       dot: {
         size: 8,
         color: '#1E1E1E',
@@ -151,8 +151,8 @@ export default function InteractiveGitGraph() {
             commitsWithHashes.forEach((c) => {
               main.commit({
                 hash:    `#${c.graphHash}`,
-                subject: c.message,
-                author: `${c.authorName} <${c.authorEmail}>`,
+                subject: c.message?.length > 100 ? `${c.message.substring(0, 90)}...` : c.message,
+                author: `by : ${c.authorName} < ${c.authorEmail} >`,
                 onClick: () => window.open(c.url, '_blank'),
                 tag: 'v1',
               })
