@@ -7,7 +7,7 @@ import { join } from 'path'
 
 async function findPages(dir: string, prefix = ''): Promise<string[]> {
   const entries = await fs.readdir(dir, { withFileTypes: true })
-  let routes: string[] = []
+  const routes: string[] = []
 
   for (const ent of entries) {
     if (ent.name.startsWith('_') || ent.name.startsWith('.') || ent.name === 'api')

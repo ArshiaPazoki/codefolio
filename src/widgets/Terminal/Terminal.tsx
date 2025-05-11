@@ -54,7 +54,7 @@ const Terminal: FC<TerminalProps> = ({
   // ——— hooks up front ———
   const [history, setHistory] = useState<string[]>(initialOutput)
   const [input, setInput] = useState('')
-  const [histIdx, setHistIdx] = useState<number | null>(null)
+  const [_histIdx, setHistIdx] = useState<number | null>(null)
   const [cursorOn, setCursorOn] = useState(true)
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -224,10 +224,10 @@ const Terminal: FC<TerminalProps> = ({
       ref={containerRef}
       onClick={() => inputRef.current?.focus()}
       className="
-        fixed bottom-0 left-0 right-0 h-1/3
-        bg-[#1e1e1e]/80 backdrop-blur-md
+      h-full
+        bg-[#1e1e1e]/50 backdrop-blur-xs
         text-[#d4d4d4] font-mono text-sm
-        p-4 overflow-y-auto border-t border-[#333] z-50
+        p-4 overflow-auto no-scrollbar border-t border-[#333] z-50
       "
     >
       {history.map((line, i) => (
