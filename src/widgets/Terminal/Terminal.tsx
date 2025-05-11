@@ -54,8 +54,8 @@ const Terminal: FC<TerminalProps> = ({
   // ——— hooks up front ———
   const [history, setHistory] = useState<string[]>(initialOutput)
   const [input, setInput] = useState('')
-  const [_histIdx, setHistIdx] = useState<number | null>(null)
-  const [cursorOn, setCursorOn] = useState(true)
+  const [, setHistIdx] = useState<number | null>(null)
+  const [cursorOn, setCursorOn] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const [pages, setPages] = useState<string[]>([])

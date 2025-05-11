@@ -67,7 +67,7 @@ const IntroPane: FC = () => {
           href="#contact"
           className="btn-secondary flex items-center space-x-1"
         >
-          <FiExternalLink size={16} /> <span>Let's Talk</span>
+          <FiExternalLink size={16} /> <span>Let&apos;s Talk</span>
         </a>
       </div>
 

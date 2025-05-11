@@ -4,6 +4,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FC } from 'react'
+import { IconType } from 'react-icons'
 import {
   VscHome,
   VscFiles,
@@ -23,12 +24,9 @@ export interface ActivityBarProps {
   onToggleTerminal: () => void
 }
 
-// Discriminated union: either a LinkItem or an ActionItem
-type LinkItem = { Icon: React.ComponentType<any>; path: string }
-type ActionItem = {
-  Icon: React.ComponentType<any>
-  action: 'toggleExplorer' | 'toggleTerminal'
-}
+// Discriminated union for top bar items
+type LinkItem = { Icon: IconType; path: string }
+type ActionItem = { Icon: IconType; action: 'toggleExplorer' | 'toggleTerminal' }
 type TopItem = LinkItem | ActionItem
 
 const topItems: TopItem[] = [
@@ -56,34 +54,27 @@ const ActivityBar: FC<ActivityBarProps> = ({
 
   return (
     <aside className="flex flex-col justify-between w-12 bg-[#1e1e1e] select-none h-full">
+      {/* Top section */}
       <div className="flex flex-col items-center space-y-2">
         {topItems.map((item) => {
-          // Shared styling
-          const isActiveLink =
-            'path' in item && item.path === pathname
+          const isActiveLink = 'path' in item && item.path === pathname
           const baseClasses = isActiveLink
             ? 'border-l-2 border-white text-white'
             : 'text-[#858585] hover:border-l-2 hover:text-white'
           const common = `flex items-center justify-center w-10 h-10 ${baseClasses}`
 
-          // Action items
           if ('action' in item) {
             const onClick =
               item.action === 'toggleExplorer'
                 ? onToggleExplorer
                 : onToggleTerminal
             return (
-              <button
-                key={item.action}
-                onClick={onClick}
-                className={common}
-              >
+              <button key={item.action} onClick={onClick} className={common}>
                 <item.Icon size={24} />
               </button>
             )
           }
 
-          // Link items
           return (
             <Link href={item.path} key={item.path}>
               <div className={common}>
@@ -94,6 +85,7 @@ const ActivityBar: FC<ActivityBarProps> = ({
         })}
       </div>
 
+      {/* Bottom section */}
       <div className="flex flex-col items-center space-y-2">
         {bottomItems.map(({ Icon, path }) => {
           const active = path === pathname
