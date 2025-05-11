@@ -150,7 +150,7 @@ const Terminal: FC<TerminalProps> = ({
         }
         break
       case 'cat':
-        if (PAGES.includes(arg)) {
+        if (pages.includes(arg)) {
           setHistory(h => [
             ...h,
             `${prompt} ${raw}`,
