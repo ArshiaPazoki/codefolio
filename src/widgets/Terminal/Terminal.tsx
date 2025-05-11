@@ -11,77 +11,127 @@ interface TerminalProps {
   initialOutput?: string[]
 }
 
-const BUILTIN_COMMANDS: Record<string, string> = {
-  help: 'Available commands: help, clear, echo [text]',
-}
+const BUILTIN_COMMANDS = ['help', 'clear', 'echo']
+
+const HELP_TEXT = `Available commands:
+• help
+• clear
+• echo [text]`
 
 const Terminal: FC<TerminalProps> = ({
   isOpen,
   prompt = '$',
-  initialOutput = [`Welcome to CodeFolio terminal! Type “help”.`],
+  initialOutput = ['Welcome to CodeFolio terminal! Type "help"'],
 }) => {
-  if (!isOpen) return null
+  // ————— All hooks up front —————
   const [history, setHistory] = useState<string[]>(initialOutput)
   const [input, setInput] = useState('')
-  const [cursorVisible, setCursorVisible] = useState(true)
-  const [historyIdx, setHistoryIdx] = useState<number | null>(null)
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Blink cursor
+  // Blink cursor (you can style this in CSS if you like)
+  const [cursorOn, setCursorOn] = useState(true)
   useEffect(() => {
-    const id = setInterval(() => setCursorVisible(v => !v), 500)
-    return () => clearInterval(id)
+    const iv = setInterval(() => setCursorOn(v => !v), 500)
+    return () => clearInterval(iv)
   }, [])
 
-  // Always scroll to bottom when history changes
+  // Auto-focus whenever we open
   useEffect(() => {
-    containerRef.current?.scrollTo(0, containerRef.current.scrollHeight)
+    if (isOpen) inputRef.current?.focus()
+  }, [isOpen])
+
+  // Always scroll to bottom on new output
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight
+    }
   }, [history])
 
-  const runCommand = (cmd: string) => {
-    if (!cmd.trim()) return
+  // ————— early return —————
+  if (!isOpen) return null
+
+  // ————— command runner —————
+  const runCommand = (raw: string) => {
+    const cmd = raw.trim()
+    if (!cmd) return
+
     if (cmd === 'clear') {
       setHistory([])
       return
     }
-    const out =
-      BUILTIN_COMMANDS[cmd] ??
-      (cmd.startsWith('echo ')
-        ? cmd.slice(5)
-        : `Command not found: ${cmd}`)
-    setHistory(h => [...h, `${prompt} ${cmd}`, out])
+
+    if (cmd === 'help') {
+      setHistory(h => [...h, `${prompt} ${cmd}`, HELP_TEXT])
+      return
+    }
+
+    if (cmd.startsWith('echo ')) {
+      setHistory(h => [...h, `${prompt} ${cmd}`, cmd.slice(5)])
+      return
+    }
+
+    setHistory(h => [...h, `${prompt} ${cmd}`, `Unknown command: ${cmd}`])
   }
 
+  // ————— handle key input —————
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      e.preventDefault()
       runCommand(input)
-      setHistoryIdx(null)
       setInput('')
+      setHistoryIndex(null)
+      return
+    }
+
+    if (e.key === 'ArrowUp') {
       e.preventDefault()
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault()
-      setHistoryIdx(i => {
-        const next = i === null ? history.length - 1 : Math.max(0, i - 1)
-        setInput(history[next]?.replace(`${prompt} `, '') || '')
+      setHistoryIndex(idx => {
+        const next = idx === null ? history.length - 1 : Math.max(0, idx - 1)
+        const prevCmd = history[next]?.replace(`${prompt} `, '') ?? ''
+        setInput(prevCmd)
         return next
       })
-    } else if (e.key === 'ArrowDown') {
+      return
+    }
+
+    if (e.key === 'ArrowDown') {
       e.preventDefault()
-      setHistoryIdx(i => {
-        if (i === null) return null
-        const next = Math.min(history.length - 1, i + 1)
-        setInput(history[next]?.replace(`${prompt} `, '') || '')
+      setHistoryIndex(idx => {
+        if (idx === null) return null
+        const next = Math.min(history.length - 1, idx + 1)
+        const nextCmd = history[next]?.replace(`${prompt} `, '') ?? ''
+        setInput(nextCmd)
         return next
       })
+      return
+    }
+
+    if (e.key === 'Tab') {
+      e.preventDefault()
+      // simple Tab completion
+      const candidates = BUILTIN_COMMANDS.filter(c => c.startsWith(input))
+      if (candidates.length === 1) {
+        setInput(candidates[0] + ' ')
+      } else if (candidates.length > 1) {
+        setHistory(h => [...h, `${prompt} ${input}`, candidates.join('  ')])
+      }
     }
   }
 
   return (
     <div
-      className="bg-[#1e1e1e]/50 backdrop-blur-sm h-full text-[#d4d4d4] font-mono text-sm p-4 overflow-auto rounded-lg border border-[#333]"
       ref={containerRef}
       onClick={() => inputRef.current?.focus()}
+      className="
+        fixed bottom-0 left-0 right-0 h-1/3
+        bg-[#1e1e1e]/80 backdrop-blur-md
+        text-[#d4d4d4] font-mono text-sm
+        p-4 overflow-y-auto
+        border-t border-[#333]
+        z-50
+      "
     >
       {history.map((line, i) => (
         <div key={i} className="whitespace-pre-wrap">
@@ -89,7 +139,7 @@ const Terminal: FC<TerminalProps> = ({
         </div>
       ))}
 
-      <div className="flex items-center mt-1">
+      <div className="flex items-center mt-2">
         <span className="mr-2 text-[#569CD6]">{prompt}</span>
         <input
           ref={inputRef}
@@ -97,11 +147,11 @@ const Terminal: FC<TerminalProps> = ({
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          autoFocus
         />
-        {/* blinking block cursor */}
         <span
-          // className={`w-2 h-5 ml-1 bg-[#d4d4d4] ${cursorVisible ? 'visible' : 'invisible'}`}
+          className={`ml-1 w-2 h-5 bg-[#d4d4d4] ${
+            cursorOn ? 'visible' : 'invisible'
+          }`}
         />
       </div>
     </div>

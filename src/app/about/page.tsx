@@ -13,9 +13,9 @@ export default function AboutPage() {
         <Image
           src="/images/AP.jpg"             // <-- swap in your actual image
           alt="Arshia Pazoki"
-          width={120}
-          height={120}
-          className="rounded-full border-4 border-[#007acc]"
+          width={240}
+          height={240}
+          className="rounded-full sm:rounded-4xl border-4 border-[#007acc]"
         />
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-white mb-2">

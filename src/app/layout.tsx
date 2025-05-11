@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const [explorerOpen, setExplorerOpen] = useState(false)
-  const [termianlOpen] = useState(false)
+  const [termianlOpen, setTerminalOpen] = useState(true)
   return (
     <html lang="en">
       <body className="flex flex-col h-full antialiased">
