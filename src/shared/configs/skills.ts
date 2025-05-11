@@ -21,16 +21,20 @@ export const skillGroups: Record<string, string[]> = {
   
     // Programming Languages & Ecosystems
     'Programming Languages & Ecosystems': [
-      'C (Programming Language)',
+      'C',
       'C++',
-      'Boost C++ Libraries',
       'C#',
+      'Boost C++ Libraries',
+      'Dart',
       'Java',
       'JavaScript',
       'TypeScript',
-      'Go (Programming Language)',
-      'Python (Programming Language)',
+      'Go (Golang)',
+      'Python',
+      'LUA',
       'Rust',
+      'QBasic',
+      'VisualBasic',
     ],
   
     // Front-end & UI Frameworks
@@ -50,6 +54,7 @@ export const skillGroups: Record<string, string[]> = {
       'Qt',
       'PyQt',
       'Highcharts',
+      'Flutter',
     ],
   
     // Back-end & APIs
@@ -120,6 +125,14 @@ export const skillGroups: Record<string, string[]> = {
       'IMUs & Sensors',
       'Robotics',
     ],
+    
+    // Microcontroller & SoC
+    'Microcontroller & SoC': [
+      'C',
+      'C++',
+      'MicroPython',
+      'LUA',
+    ],
   
     // Machine Learning & Data Science
     'Machine Learning & Data Science': [
@@ -137,6 +150,11 @@ export const skillGroups: Record<string, string[]> = {
       'Computer Vision',
       'OpenCV',
       'Image Processing',
+      'Jupyter Notebook',
+      'Artificial Intelligence (AI)',
+      'Generative AI (GenAI)',
+      'Large Language Models (LLM)',
+      'Natural Language Processing (NLP)',
     ],
   
     // Architecture, Patterns & Practices
@@ -178,7 +196,7 @@ export const skillGroups: Record<string, string[]> = {
     ],
   
     // Miscellaneous
-    'Miscellaneous': [
+    'Technical & Miscellaneous Skills': [
       'Linux',
       'MATLAB',
       'High-performance computing (HPC)',

@@ -46,7 +46,7 @@ const IntroPane: FC = () => {
   return (
     <div className="flex flex-col justify-center p-4 h-full">
       <h1 className="text-xl font-bold mb-4">
-        Hi, I’m
+        Hello World! I’m
         <br />
         <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-pulse">
           &lt;Arshia Pazoki /&gt;
@@ -61,13 +61,13 @@ const IntroPane: FC = () => {
           href="#projects"
           className="btn-primary flex items-center space-x-1"
         >
-          <FiExternalLink size={16} /> <span>View Projects</span>
+          <FiExternalLink size={16} /> <span>Download CV</span>
         </a>
         <a
           href="#contact"
           className="btn-secondary flex items-center space-x-1"
         >
-          <FiExternalLink size={16} /> <span>Contact Me</span>
+          <FiExternalLink size={16} /> <span>Let's Talk</span>
         </a>
       </div>
 
@@ -75,7 +75,7 @@ const IntroPane: FC = () => {
       <div className="flex flex-1 flex-col sm:flex-row overflow-auto bg-[#1e1e1e] rounded-lg shadow-lg">
         {/* Category navigation */}
         <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 top-0">
-        <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-600'>Expertise &amp; Tools</p>
+        <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-600'>&gt;_ Expertise &amp; Tools</p>
         <div className="overflow-y-auto no-scrollbar h-full">
           {categories.map((cat) => (
             <button
