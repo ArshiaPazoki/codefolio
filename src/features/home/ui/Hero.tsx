@@ -5,7 +5,9 @@ import { FC, useState, useMemo, useEffect, useCallback } from 'react'
 import CodeEditor from '../../../widgets/CodeEditor/CodeEditor'
 import { useActiveLine } from '../../../features/home/lib/useActiveLine'
 import { codeLines } from '../../../shared/configs/homeConfig'
-import { skillGroups } from '@/shared/configs/skills'
+import { skillGroups } from '../../../shared/configs/skills'
+import { useTypewriterLoop } from '../../../shared/hooks/useTypewriter'
+import { useBlink } from '../../../shared/hooks/useBlink'
 import { FiChevronRight, FiSearch, FiExternalLink } from 'react-icons/fi'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -43,6 +45,18 @@ const IntroPane: FC = () => {
     )
   }, [activeCategory, search])
 
+  const rotatingTitles = useTypewriterLoop({
+    texts: [
+      'Senior Test Automation Engineer',
+      'Software Development Engineer in Test (S.D.E.T)'
+    ],
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    pauseBeforeDelete: 250,
+    pauseBeforeType: 100,
+  })
+  const cursorOn  = useBlink(500)
+
   return (
     <div className="flex flex-col justify-center p-4 h-full">
       <h1 className="text-xl font-bold mb-4">
@@ -53,7 +67,9 @@ const IntroPane: FC = () => {
         </span>
       </h1>
       <p className="text-xl text-gray-400 mb-6">
-        Senior Test Automation Engineer & SDET @ <Link href="https://asax.ir/" className='hover:text-red-600'>Asa.Co</Link>
+        {rotatingTitles}
+        <span className={cursorOn ? '' : 'invisible'}> _ </span>
+        <Link href="https://asax.ir/" className='hover:text-red-600'>@ Asa.Co</Link>
       </p>
 
       <div className="flex space-x-4 mb-6">

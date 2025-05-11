@@ -35,7 +35,7 @@ const ExtendedTimeline: FC = () => {
               <div key={ev.title} className="flex items-start relative">
                 <div className="flex flex-col items-center">
                   {/* Node */}
-                  <div className="w-4 h-4 bg-[#007acc] rounded mt-1 z-10" />
+                    <div className="w-4 h-4 bg-[#007acc] rounded mt-1 z-10" />
                   {/* Connector */}
                   {idx < timelineEvents.length - 1 && (
                     <div className="w-px flex-1 bg-[#007acc]" />
