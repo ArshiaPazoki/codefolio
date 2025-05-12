@@ -1,6 +1,9 @@
+import Link from 'next/link'
 import { ContactForm } from '../../features/contact/ui/ContactForm'
-import { VscMail, VscLink } from 'react-icons/vsc'
-
+import { VscMail, VscGithub, } from 'react-icons/vsc'
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaXTwitter,FaLinkedin  } from "react-icons/fa6";
+import { TbBrandGravatar } from 'react-icons/tb';
 export const metadata = {
   title: 'Contact | CodeFolio',
   description: 'Get in touch with Arshia Pazoki',
@@ -25,21 +28,57 @@ export default function ContactPage() {
         <ContactForm />
       </div>
 
-      <div className="mt-12 flex space-x-6 text-[#858585]">
-        <a
+      <div className="p-4 flex space-x-6 text-[#858585]">
+        <div className="flex space-x-1 hover:text-white"> 
+        <VscGithub size={24} />
+        <Link
           href="https://github.com/ArshiaPazoki"
           target="_blank"
-          className="hover:text-white transition"
-        >
-          <VscLink size={24} /> GitHub
-        </a>
-        <a
+          className="transition"
+          >
+          GitHub
+        </Link>
+            </div>
+        <div className="flex space-x-1 hover:text-white"> 
+        <FaLinkedin  size={24} />
+        <Link
           href="https://linkedin.com/in/arshia-pazoki"
           target="_blank"
-          className="hover:text-white transition"
-        >
-          <VscLink size={24} /> LinkedIn
-        </a>
+          className="transition"
+          >
+          LinkedIn
+        </Link>
+            </div>
+        <div className="flex space-x-1 hover:text-white"> 
+        <FaXTwitter size={24} />
+        <Link
+          href="https://x.com/ArshiaPazoki"
+          target="_blank"
+          className="transition"
+          >
+          X
+        </Link>
+            </div>
+        <div className="flex space-x-1 hover:text-white"> 
+        <FaTelegramPlane size={24} />
+        <Link
+          href="https://t.me/ArshiaPazoki"
+          target="_blank"
+          className="transition"
+          >
+          Telegram
+        </Link>
+            </div>
+        <div className="flex space-x-1 hover:text-white"> 
+        <TbBrandGravatar size={24} />
+        <Link
+          href="https://gravatar.com/arshiapazoki"
+          target="_blank"
+          className="transition"
+          >
+          Gravatar
+        </Link>
+            </div>
       </div>
     </section>
   )
