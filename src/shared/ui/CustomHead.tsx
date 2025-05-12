@@ -55,7 +55,7 @@ const CustomHead: FC<HeadProps> = ({
     <meta name="twitter:image"       content={image} />
 
     {/* Favicons & manifest (optional) */}
-    <link rel="icon"      href="/favicon.ico" />
+    <link rel="icon"      href="/vscode.svg" />
     <link rel="manifest"  href="/site.webmanifest" />
   </NextHead>
 )
