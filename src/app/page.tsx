@@ -1,4 +1,3 @@
-import { Icon } from 'lucide-react';
 import Hero from '../features/home/ui/Hero';
 
 export const metadata = {

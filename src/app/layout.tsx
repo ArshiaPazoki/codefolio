@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         */}
         {terminalOpen && (
           <div className="absolute h-1/3 bottom-7 left-0 right-0 pointer-events-none flex justify-center z-50">
-            <div className="pointer-events-auto ml-12 w-full sm:w-3/4 lg:w-full h-full mx-auto">
+            <div className="pointer-events-auto ml-12 w-full sm:w-3/4 lg:w-full h-full mx-auto border-1 border-b-0 border-zinc-500">
               <Terminal isOpen={true} prompt=">" />
             </div>
           </div>
