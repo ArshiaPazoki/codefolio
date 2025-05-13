@@ -1,4 +1,4 @@
-import { Repo } from '../model/types'
+import { GitHubRepo,Repo } from '../model/types'
 
 const USERNAME = 'ArshiaPazoki'
 const GITHUB_API = `https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=20`
@@ -21,7 +21,7 @@ export async function getRepos(): Promise<Repo[]> {
     throw new Error(`GitHub API responded ${res.status}: ${res.statusText}`)
   }
 
-  const data = (await res.json()) as any[]
+  const data = (await res.json()) as GitHubRepo[]
 
   return data.map((r) => ({
     name: r.name,

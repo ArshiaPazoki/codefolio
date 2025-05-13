@@ -10,11 +10,13 @@ export default async function GitHubPage() {
   let repos = []
   try {
     repos = await getRepos()
-  } catch (e: any) {
+  } catch (err) {
+    const message =
+      err instanceof Error ? err.message : 'Unknown error fetching repos'
     return (
       <section className="p-8 bg-[#1e1e1e] text-[#d4d4d4]">
         <h1 className="text-2xl font-bold mb-4">My GitHub Repos</h1>
-        <p className="text-red-400">Failed to load repositories: {e.message}</p>
+        <p className="text-red-400">Failed to load repositories: {message}</p>
       </section>
     )
   }
