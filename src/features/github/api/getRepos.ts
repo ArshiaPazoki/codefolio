@@ -29,6 +29,6 @@ export async function getRepos(): Promise<Repo[]> {
     description: r.description,
     stargazers: r.stargazers_count,
     forks: r.forks_count,
-    language: r.language,
+    language: r.language ?? undefined,
   }))
 }
