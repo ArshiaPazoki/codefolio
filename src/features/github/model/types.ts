@@ -1,5 +1,5 @@
 // mirror exactly the bits we need from GitHub’s API
-interface GitHubRepo {
+export interface GitHubRepo {
   name: string
   html_url: string
   description: string | null
