@@ -94,7 +94,7 @@ export default function InteractiveGitGraph() {
     },
   
     commit: {
-      spacing: 40,        // more vertical padding
+      spacing: 60,        // more vertical padding
       dot: {
         size: 8,
         color: '#1E1E1E',
@@ -154,7 +154,7 @@ export default function InteractiveGitGraph() {
                 subject: c.message?.length > 100 ? `${c.message.substring(0, 90)}...` : c.message,
                 author: `by : ${c.authorName} < ${c.authorEmail} >`,
                 onClick: () => window.open(c.url, '_blank'),
-                tag: 'v1',
+                tag: 'v0.1.0',
               })
             })
           }}

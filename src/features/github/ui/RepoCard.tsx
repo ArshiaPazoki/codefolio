@@ -9,11 +9,11 @@ export function RepoCard({ repo }: { repo: Repo }) {
       href={repo.url}
       target="_blank"
       rel="noreferrer"
-      className="block p-4 bg-[#252526] rounded hover:bg-[#2a2d2e] transition"
+      className="block p-4 bg-[#252526] rounded hover:bg-[#2a2d2e] hover:scale-105 duration-500 transition"
     >
-      <h3 className="text-lg font-semibold text-[#dcdcdc] mb-1 truncate">
+      <h2 className="text-lg font-semibold text-[#dcdcdc] hover:text-[#007acc] mb-1 truncate">
         {repo.name}
-      </h3>
+      </h2>
       {repo.description && (
         <p className="text-sm text-[#a6a6a6] mb-3 line-clamp-2">
           {repo.description}

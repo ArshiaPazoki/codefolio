@@ -75,6 +75,7 @@ const CodeEditor: FC<CodeEditorProps> = ({
 
   return (
     <div className={`${className} rounded-md overflow-auto no-scrollbar shadow-lg`}>
+      
       <SyntaxHighlighter
         language={language}
         style={customTheme}
