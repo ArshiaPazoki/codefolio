@@ -51,6 +51,7 @@ export function ContactForm() {
       <div>
         <label className="block text-sm font-medium">Name</label>
         <input
+          placeholder='Name'
           {...register('name')}
           className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-[#007acc]"
         />

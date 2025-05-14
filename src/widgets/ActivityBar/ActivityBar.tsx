@@ -17,6 +17,7 @@ import {
   VscGitCommit,
   VscGitMerge,
   VscTerminal,
+  VscListTree,
 } from 'react-icons/vsc'
 
 export interface ActivityBarProps {
@@ -39,6 +40,7 @@ const topItems: TopItem[] = [
   { Icon: VscEdit, path: '/articles' },
   { Icon: VscMail, path: '/contact' },
   { Icon: VscTerminal, action: 'toggleTerminal' },
+  { Icon: VscListTree, path: '/dependency-tree' },
 ]
 
 const bottomItems: LinkItem[] = [
