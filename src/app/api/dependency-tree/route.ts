@@ -10,7 +10,13 @@ export async function GET() {
   try {
     const tree = getDependencyTree()
     return NextResponse.json(tree)
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  } catch (error: unknown) {
+    // Narrow the unknown to a string
+    const message =
+      error instanceof Error ? error.message : String(error)
+    return NextResponse.json(
+      { error: message },
+      { status: 500 }
+    )
   }
 }

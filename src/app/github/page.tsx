@@ -1,6 +1,6 @@
 import { getRepos } from '@/features/github/api/getRepos'
 import { RepoGrid } from '@/features/github/ui/RepoGrid'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export const metadata = {
   title: 'GitHub Repositories – Arshia Pazoki',
