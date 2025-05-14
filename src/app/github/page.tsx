@@ -1,5 +1,6 @@
 import { getRepos } from '@/features/github/api/getRepos'
 import { RepoGrid } from '@/features/github/ui/RepoGrid'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'GitHub Repositories – Arshia Pazoki',
@@ -24,6 +25,14 @@ export default async function GitHubPage() {
   return (
     <section className="p-8 bg-[#1e1e1e] text-[#d4d4d4]">
       <h1 className="text-2xl font-bold mb-8 text-center">My GitHub Repositories</h1>
+      {/* TODO */}
+      {/* <Image
+      src="https://raw.githubusercontent.com/ArshiaPazoki/ArshiaPazoki/2f3c5efe3bb11cb85554b40049eb7878e62fb6da/profile-3d-contrib/profile-night-rainbow.svg"
+      width={400}
+      height={600}
+      alt="Picture of the author"
+      className='m-2 w-1/2'
+    /> */}
       <RepoGrid repos={repos} />
     </section>
   )

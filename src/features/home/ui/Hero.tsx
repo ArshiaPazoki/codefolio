@@ -73,18 +73,18 @@ const IntroPane: FC = () => {
       </p>
 
       <div className="flex space-x-4 mb-6">
-        <a
+        <Link
           href="#projects"
           className="btn-primary flex items-center space-x-1"
         >
           <FiExternalLink size={16} /> <span>Download CV</span>
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link
+          href="/contact"
           className="btn-secondary flex items-center space-x-1"
         >
           <FiExternalLink size={16} /> <span>Let&apos;s Talk</span>
-        </a>
+        </Link>
       </div>
 
       {/* Main Content */}

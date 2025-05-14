@@ -19,6 +19,17 @@
   animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite ;
 }
 
+/* VS Code–blue connectors */
+.__rd3t .link {
+  stroke: #569cd6 !important;
+  stroke-width: 4px !important;
+}
+
+/* Ensure foreignObject text is crisp & white */
+.__rd3t text {
+  fill: #ffffff !important;
+}
+
 html,
 body,
 #__next {
