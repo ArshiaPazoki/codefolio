@@ -120,7 +120,7 @@ export default function DependencyTree() {
         >
           <Controls />
           <Background
-            variant="dots"
+            // variant="dots"
             gap={32}
             size={2}
             color="#333"
