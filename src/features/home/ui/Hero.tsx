@@ -73,13 +73,13 @@ const IntroPane: FC = () => {
         <a
           download
           href="/files/cv.pdf"
-          className="btn-primary flex items-center justify-center space-x-1 rounded-lg p-2 border-2 border-blue-600 w-36 hover:scale-105"
+          className="btn-primary flex items-center justify-center space-x-1 rounded-lg p-2 border-1 border-blue-600 w-36 hover:scale-105"
         >
           <FiExternalLink size={16} /> <span>Download CV</span>
         </a>
         <Link
           href="/contact"
-          className="btn-secondary flex items-center justify-center space-x-1 rounded-lg p-2 border-2 border-red-600 w-36 hover:scale-105"
+          className="btn-secondary flex items-center justify-center space-x-1 rounded-lg p-2 border-1 border-red-600 w-36 hover:scale-105"
         >
           <FiExternalLink size={16} /> <span>Let&apos;s Talk</span>
         </Link>
