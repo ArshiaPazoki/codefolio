@@ -15,7 +15,7 @@ export default function AboutPage() {
           alt="Arshia Pazoki"
           width={240}
           height={240}
-          className="rounded-full sm:rounded-4xl border-4 border-[#007acc]"
+          className="brightness-75 rounded-2xl border-2 border-[#007acc]"
         />
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-white mb-2">

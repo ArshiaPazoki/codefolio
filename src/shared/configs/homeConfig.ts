@@ -23,7 +23,7 @@ export interface CodeLine {
     { code: '  const developerInfo = {', type: 'variable' },
     { code: "    name: 'Arshia Pazoki',", type: 'array-item' },
     { code: "    role: 'Senior Test Automation Engineer & SDET',", type: 'array-item' },
-    { code: "    bio: 'building scalable automation frameworks \n and full-stack applications.',", type: 'array-item' },
+    { code: "    bio: 'building scalable automation frameworks and full-stack applications.',", type: 'array-item' },
     { code: '  };', type: 'array-end' },
     { code: '', type: 'blank' },
     { code: '  useEffect(() => {', type: 'nested-function' },

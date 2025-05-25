@@ -11,6 +11,7 @@ import { useBlink } from '../../../shared/hooks/useBlink'
 import { FiChevronRight, FiSearch, FiExternalLink } from 'react-icons/fi'
 import clsx from 'clsx'
 import Link from 'next/link'
+import IDE from '@/widgets/IDE/IDE'
 const IntroPane: FC = () => {
   const categories = Object.keys(skillGroups)
   const [activeCategory, setActiveCategory] = useState<string>(categories[0])
@@ -173,12 +174,13 @@ const Hero: FC = () => {
     <section className="max-h-screen w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
       {/* Code editor only on sm+ */}
       <div className="m-4 sm:m-0 rounded-lg sm:rounded-none sm:w-1/2 bg-[#1e1e1e] sm:order-0 order-1">
-        <CodeEditor
+        {/* <CodeEditor
           code={codeLines.map(line => line.code).join('\n')}
           language="tsx"
           className="w-full h-full"
           highlightLines={[activeLine]}
-        />
+        /> */}
+        <IDE/>
       </div>
 
       {/* Always show intro pane; on sm+ it takes half the width */}
