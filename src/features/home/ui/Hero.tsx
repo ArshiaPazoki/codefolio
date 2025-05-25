@@ -2,9 +2,6 @@
 'use client'
 
 import { FC, useState, useMemo, useEffect, useCallback } from 'react'
-import CodeEditor from '../../../widgets/CodeEditor/CodeEditor'
-import { useActiveLine } from '../../../features/home/lib/useActiveLine'
-import { codeLines } from '../../../shared/configs/homeConfig'
 import { skillGroups } from '../../../shared/configs/skills'
 import { useTypewriterLoop } from '../../../shared/hooks/useTypewriter'
 import { useBlink } from '../../../shared/hooks/useBlink'
@@ -169,17 +166,10 @@ const IntroPane: FC = () => {
 }
 
 const Hero: FC = () => {
-  const activeLine = useActiveLine(500)
   return (
     <section className="max-h-screen w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
       {/* Code editor only on sm+ */}
       <div className="m-4 sm:m-0 rounded-lg sm:rounded-none sm:w-1/2 bg-[#1e1e1e] sm:order-0 order-1">
-        {/* <CodeEditor
-          code={codeLines.map(line => line.code).join('\n')}
-          language="tsx"
-          className="w-full h-full"
-          highlightLines={[activeLine]}
-        /> */}
         <IDE/>
       </div>
 
