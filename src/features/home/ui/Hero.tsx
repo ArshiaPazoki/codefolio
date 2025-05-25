@@ -57,12 +57,11 @@ const IntroPane: FC = () => {
 
   return (
     <div className="flex flex-col justify-center p-4 h-full">
-      <h1 className="text-xl font-bold mb-4">
-        Hello World! I’m
-        <br />
-        <span className="text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 hover:from-pink-500 hover:to-yellow-400 transition-all animate-pulse">
+      <h1 className="text-xl font-bold mb-4 align-middle whitespace-pre-line">
+        <p className="mb-4">Hello World! I’m</p>
+        <p className="text-4xl sm:text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 hover:from-red-600 hover:to-yellow-300 transition-all animate-pulse">
           &lt;Arshia Pazoki /&gt;
-        </span>
+        </p>
       </h1>
       <p className="text-xl text-gray-400 mb-6">
         {rotatingTitles}
