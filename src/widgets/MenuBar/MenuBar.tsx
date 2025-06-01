@@ -52,8 +52,8 @@ const MenuBar: FC = () => (
     </div>
 
     {/* Center: Search input */}
-    <div className="flex items-center flex-1 mx-6">
-      <div className="relative w-full max-w-xl rounded border border-transparent hover:border-[#007acc] transition-colors duration-1000">
+    <div className="flex items-center justify-center flex-1 mx-6">
+      <div className="relative w-full max-w-2xl rounded border border-transparent hover:border-[#007acc] transition-colors duration-1000">
         <Search size={14} className="absolute left-2 top-1/2 -translate-y-1/2 text-[#888888] hover:text-[#404040]" />
         <input
           type="text"
