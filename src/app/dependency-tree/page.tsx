@@ -8,7 +8,7 @@ export default function DependencyTreePage() {
       <h1 className="text-3xl font-bold text-[#d4d4d4] mb-6">
         📦 Dependency Tree of CodeFolio
       </h1>
-      <div className="h-[600px] rounded border border-[#333] overflow-hidden">
+      <div className="h-[80vh] rounded border border-[#333] overflow-hidden">
         <DependencyTree/>
       </div>
     </main>
