@@ -15,6 +15,8 @@ import "reactflow/dist/style.css";
 import type { TreeNode } from "@/features/dependency-tree/model/DependencyTreeModel";
 import { fetchDependencyTree } from "../service/getDependencyTree";
 
+import { Tooltip } from "@/shared/ui/Tooltip";
+
 // Width and height for each node in the graph
 const NODE_WIDTH = 150;
 const NODE_HEIGHT = 50;
@@ -71,7 +73,15 @@ function treeToFlow(root: TreeNode): { nodes: Node[]; edges: Edge[] } {
     // Add this node to the nodes array
     nodes.push({
       id: id,
-      data: { label: `${node.name} @ ${node.version}`, raw: node },
+      // data: { label: `${node.name} @ ${node.version}`, raw: node },
+      data: {
+        label: (
+          <Tooltip content={`${node.name}@${node.version}`}>
+            <div>{node.name}</div>
+          </Tooltip>
+        ),
+        raw: node,
+      },
       // Style properties for visual appearance
       style: {
         width: NODE_WIDTH,
@@ -183,12 +193,9 @@ export default function DependencyTree() {
     onNodeClick updates selectedNode when a node is clicked.
     Type annotations: event is a mouse event, node is a ReactFlow Node.
   */
-  const onNodeClick = useCallback(
-    (event: React.MouseEvent, node: Node) => {
-      setSelectedNode(node);
-    },
-    []
-  );
+  const onNodeClick = useCallback((event: React.MouseEvent, node: Node) => {
+    setSelectedNode(node);
+  }, []);
 
   /*
     filteredElements computes a filtered list of nodes and edges
@@ -210,18 +217,6 @@ export default function DependencyTree() {
     );
     return { nodes: filteredNodes, edges: filteredEdges };
   }, [filter, elements]);
-
-  /*
-    onZoomToFit finds the ReactFlow container and calls fitView
-    on its instance. This is an alternative to CustomControls,
-    but here document query is used (not ideal, but kept for now).
-  */
-  const onZoomToFit = useCallback(() => {
-    const flow = document.querySelector(".react-flow") as {
-      __reactFlowInstance?: { fitView: () => void };
-    };
-    flow?.__reactFlowInstance?.fitView();
-  }, []);
 
   // Prevent rendering until after client has mounted to avoid SSR mismatch
   if (!mounted) {
@@ -309,8 +304,7 @@ export default function DependencyTree() {
               <strong>Version:</strong> {selectedNode.data.raw.version}
             </div>
             <div>
-              <strong>Children:</strong>{" "}
-              {selectedNode.data.raw.children.length}
+              <strong>Children:</strong> {selectedNode.data.raw.children.length}
             </div>
             {/* Close button to hide detail panel */}
             <button
