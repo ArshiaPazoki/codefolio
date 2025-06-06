@@ -10,9 +10,9 @@ import {
   Search,
   User,
   Columns,
-  ArrowLeft,
-  ArrowRight,
 } from 'lucide-react'
+import { VscArrowLeft,VscArrowRight  } from 'react-icons/vsc'
+
 
 const menuItems = [
   'File',
@@ -76,27 +76,26 @@ const TitleBar: FC = () => {
             </span>
           ))}
         </nav>
+        
+      </div>
 
+      {/* Center: Search input */}
+      <div className="flex items-center justify-center flex-1 mx-6">
         {/* Back / Forward Navigation */}
         <button
           onClick={() => router.back()}
           title="Back (Alt + ←)"
           className="hover:text-white transition-colors px-1"
         >
-          <ArrowLeft size={14} />
+          <VscArrowLeft size={16} />
         </button>
         <button
           onClick={() => router.forward()}
           title="Forward (Alt + →)"
           className="hover:text-white transition-colors px-1"
         >
-          <ArrowRight size={14} />
+          <VscArrowRight size={16} />
         </button>
-        
-      </div>
-
-      {/* Center: Search input */}
-      <div className="flex items-center justify-center flex-1 mx-6">
         <div className="relative w-full max-w-2xl rounded border border-transparent hover:border-[#007acc] transition-colors duration-1000">
           <Search
             size={14}
