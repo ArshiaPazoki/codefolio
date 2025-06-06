@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Terminal Panel */}
             {terminalOpen && (
-              <div className="h-3/5 bg-[#1e1e1e] border-t border-[#333] overflow-hidden">
+              <div className="h-4/10 bg-[#1e1e1e] border-t border-[#333] overflow-hidden">
                 <Terminal isOpen={true} />
               </div>
             )}
