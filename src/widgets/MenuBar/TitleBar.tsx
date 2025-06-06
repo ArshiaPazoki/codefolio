@@ -38,7 +38,7 @@ const handleFullscreen = () => {
   }
 }
 
-const MenuBar: FC = () => {
+const TitleBar: FC = () => {
   const router = useRouter()
 
   // ⌨️ Keyboard shortcuts (Alt+Left/Right)
@@ -143,4 +143,4 @@ const MenuBar: FC = () => {
   )
 }
 
-export default MenuBar
+export default TitleBar

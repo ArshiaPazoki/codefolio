@@ -3,7 +3,7 @@
 
 import './globals.css'
 import { useState } from 'react'
-import Titlebar from '@/widgets/MenuBar/MenuBar'
+import Titlebar from '@/widgets/MenuBar/TitleBar'
 import ActivityBar from '@/widgets/ActivityBar/ActivityBar'
 import Explorer from '@/widgets/Explorer/Explorer'
 import Terminal from '@/widgets/Terminal/Terminal'
