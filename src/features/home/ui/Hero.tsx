@@ -1,7 +1,8 @@
 // src/app/(home)/hero/Hero.tsx
 'use client'
 
-import { FC, useState, useMemo, useEffect, useCallback } from 'react'
+// import { FC, useState, useMemo, useEffect, useCallback } from 'react'
+import { FC, useState, useMemo} from 'react'
 import { skillGroups } from '../../../shared/configs/skills'
 import { useTypewriterLoop } from '../../../shared/hooks/useTypewriter'
 import { useBlink } from '../../../shared/hooks/useBlink'
@@ -16,25 +17,25 @@ const IntroPane: FC = () => {
   const [search, setSearch] = useState('')
 
   // keyboard nav: ← / →
-  const onKey = useCallback(
-    (e: KeyboardEvent) => {
-      const idx = categories.indexOf(activeCategory)
-      if ((e.key === 'ArrowRight' || e.key ==='ArrowDown') && idx < categories.length - 1) {
-        setActiveCategory(categories[idx + 1])
-      }
-      if ((e.key === 'ArrowLeft' || e.key ==='ArrowUp') && idx > 0) {
-        setActiveCategory(categories[idx - 1])
-      }
-      if (e.key === 'Enter' && idx > 0) {
-        setActiveCategory(categories[idx])
-      }
-    },
-    [activeCategory]
-  )
-  useEffect(() => {
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [onKey])
+  // const onKey = useCallback(
+  //   (e: KeyboardEvent) => {
+  //     const idx = categories.indexOf(activeCategory)
+  //     if ((e.key === 'ArrowRight' || e.key ==='ArrowDown') && idx < categories.length - 1) {
+  //       setActiveCategory(categories[idx + 1])
+  //     }
+  //     if ((e.key === 'ArrowLeft' || e.key ==='ArrowUp') && idx > 0) {
+  //       setActiveCategory(categories[idx - 1])
+  //     }
+  //     if (e.key === 'Enter' && idx > 0) {
+  //       setActiveCategory(categories[idx])
+  //     }
+  //   },
+  //   [activeCategory]
+  // )
+  // useEffect(() => {
+  //   window.addEventListener('keydown', onKey)
+  //   return () => window.removeEventListener('keydown', onKey)
+  // }, [onKey])
 
   // filtered skills
   const filteredSkills = useMemo(() => {

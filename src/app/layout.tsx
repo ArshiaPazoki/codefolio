@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Titlebar from '@/widgets/MenuBar/TitleBar'
 import ActivityBar from '@/widgets/ActivityBar/ActivityBar'
 import Explorer from '@/widgets/Explorer/Explorer'
-import Terminal from '@/widgets/Terminal/Terminal'
+import Terminal from '@/features/Terminal/Terminal'
 import Statusbar from '@/widgets/Statusbar/Statusbar'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
