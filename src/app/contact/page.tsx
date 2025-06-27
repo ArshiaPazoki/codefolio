@@ -11,14 +11,14 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="min-h-screen bg-[#1e1e1e] text-[#d4d4d4] p-8 flex flex-col items-center">
+    <section className="min-h-screen bg-neutral-900 text-gray-200 p-8 flex flex-col items-center">
       <h1 className="text-4xl font-bold mb-2">Contact Me</h1>
       <p className="text-gray-400 mb-8 text-center max-w-xl">
         Have a question, a project idea or just want to say hi? Fill out the form below
         or reach me directly at{' '}
         <a
           href="mailto:arshia@example.com"
-          className="text-[#569CD6] hover:underline inline-flex items-center space-x-1"
+          className="text-blue-800 hover:underline inline-flex items-center space-x-1"
         >
           <VscMail /> <span>arshiapazoki2000@gmail.com</span>
         </a>
@@ -28,7 +28,7 @@ export default function ContactPage() {
         <ContactForm />
       </div>
 
-      <div className="p-4 flex space-x-6 text-[#858585]">
+      <div className="p-8 flex space-x-6 text-[#858585]">
         <div className="flex space-x-1 hover:text-white"> 
         <VscGithub size={24} />
         <Link
@@ -36,7 +36,6 @@ export default function ContactPage() {
           target="_blank"
           className="transition"
           >
-          GitHub
         </Link>
             </div>
         <div className="flex space-x-1 hover:text-white"> 
@@ -46,7 +45,6 @@ export default function ContactPage() {
           target="_blank"
           className="transition"
           >
-          LinkedIn
         </Link>
             </div>
         <div className="flex space-x-1 hover:text-white"> 
@@ -56,7 +54,6 @@ export default function ContactPage() {
           target="_blank"
           className="transition"
           >
-          X
         </Link>
             </div>
         <div className="flex space-x-1 hover:text-white"> 
@@ -66,7 +63,6 @@ export default function ContactPage() {
           target="_blank"
           className="transition"
           >
-          Telegram
         </Link>
             </div>
         <div className="flex space-x-1 hover:text-white"> 
@@ -76,7 +72,6 @@ export default function ContactPage() {
           target="_blank"
           className="transition"
           >
-          Gravatar
         </Link>
             </div>
       </div>

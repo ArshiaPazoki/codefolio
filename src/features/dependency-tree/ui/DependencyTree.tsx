@@ -135,7 +135,7 @@ function CustomControls() {
     <div className="absolute top-2 right-2 flex gap-2 z-10">
       <button
         onClick={() => fitView()}
-        className="px-3 py-1 text-sm text-white bg-[#007acc] rounded shadow hover:bg-[#005fa3]"
+        className="px-3 py-1 text-sm text-white bg-blue-800 rounded shadow hover:bg-[#005fa3]"
       >
         Zoom to Fit
       </button>
@@ -235,7 +235,7 @@ export default function DependencyTree() {
 
   // Main render
   return (
-    <div className="w-full h-full relative bg-[#1e1e1e]">
+    <div className="w-full h-full relative bg-neutral-900">
       <ReactFlowProvider>
         {/* Search input and animation toggle */}
         <div className="absolute top-2 left-2 z-10 flex gap-2">
@@ -250,7 +250,7 @@ export default function DependencyTree() {
           {/* Button to enable or disable edge animation */}
           <button
             onClick={() => setEdgesAnimated((prev) => !prev)}
-            className="text-sm px-2 py-1 rounded bg-[#007acc] text-white hover:bg-[#005fa3]"
+            className="text-sm px-2 py-1 rounded bg-blue-800 text-white hover:bg-[#005fa3]"
           >
             {edgesAnimated ? "Disable" : "Enable"} Animation
           </button>
@@ -296,7 +296,7 @@ export default function DependencyTree() {
         {/* Node detail panel shown when a node is selected */}
         {selectedNode && (
           <div className="absolute bottom-2 left-2 bg-[#2a2a2a] text-white p-4 rounded shadow max-w-sm z-10">
-            <div className="font-bold text-[#007acc] mb-2">Node Info</div>
+            <div className="font-bold text-blue-800 mb-2">Node Info</div>
             <div>
               <strong>Name:</strong> {selectedNode.data.raw.name}
             </div>

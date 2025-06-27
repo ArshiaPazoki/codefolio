@@ -9,13 +9,13 @@ export default function AboutPage() {
   return (
     <section className="flex flex-col space-y-12 p-8">
       {/* Intro */}
-      <div className="flex flex-col md:flex-row items-center gap-6 bg-[#1e1e1e] p-8 rounded-lg shadow-lg">
+      <div className="flex flex-col md:flex-row items-center gap-6 bg-neutral-900 p-8 rounded-lg shadow-lg">
         <Image
           src="/images/AP.jpg"             // <-- swap in your actual image
           alt="Arshia Pazoki"
           width={240}
           height={240}
-          className="brightness-75 rounded-2xl border-2 border-[#007acc]"
+          className="brightness-75 rounded-2xl ring-2 ring-blue-800"
         />
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-white mb-2">
@@ -43,9 +43,9 @@ export default function AboutPage() {
           {Object.entries(skillGroups).map(([category, skills]) => (
             <div
               key={category}
-              className="bg-[#1e1e1e] p-6 rounded-lg shadow-inner"
+              className="bg-neutral-900 p-6 rounded-lg shadow-inner"
             >
-              <h3 className="text-xl text-[#9CDCFE] font-medium mb-3">
+              <h3 className="text-xl text-blue-800 font-medium mb-3">
                 {category}
               </h3>
               <ul className="list-disc list-inside text-gray-300 space-y-1 text-sm">

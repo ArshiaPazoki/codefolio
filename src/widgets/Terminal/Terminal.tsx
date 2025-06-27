@@ -229,7 +229,7 @@ const Terminal: FC<TerminalProps> = ({ isOpen }) => {
     <div
       ref={containerRef}
       onClick={() => inputRef.current?.focus()}
-      className="h-full bg-[#1e1e1e] text-[#cccccc] font-mono text-sm p-4 overflow-y-auto no-scrollbar border-t border-[#333] z-50"
+      className="h-full bg-neutral-900 text-[#cccccc] font-mono text-sm p-4 overflow-y-auto no-scrollbar border-t border-[#333] z-50"
     >
       {history.map((line, i) => (
         <div key={`line-${i}`} className="whitespace-pre-wrap leading-normal">

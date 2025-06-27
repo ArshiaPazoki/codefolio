@@ -5,6 +5,8 @@ import type * as monaco from "monaco-editor";
 import { useMemo, useCallback, useRef } from "react";
 import { codeLines } from "@/shared/configs/homeConfig";
 
+// import OneDarkPro from './themes/OneDark-Pro-darker.json'
+
 const IDE = () => {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
@@ -17,16 +19,24 @@ const IDE = () => {
   // Full editor options
   const editorOptions: monaco.editor.IStandaloneEditorConstructionOptions = {
     fontSize: 14,
-    fontFamily: "Fira Code, monospace",
+    fontFamily: 'Jetbrains-Mono',
+    fontLigatures: true,
     cursorStyle: "line",
-    cursorBlinking: "blink",
+    cursorBlinking: "expand",
     smoothScrolling: true,
     wordWrap: "on",
     wrappingStrategy: "advanced",
     formatOnPaste: true,
     formatOnType: true,
     automaticLayout: true,
-    minimap: { enabled: true },
+    minimap: { 
+      enabled: true,
+      scale: 2,
+      renderCharacters: false,
+    },
+    bracketPairColorization: {
+      enabled: true
+    },
     scrollbar: {
       vertical: "visible",
       horizontal: "visible",
@@ -58,14 +68,31 @@ const IDE = () => {
       console.log("Ctrl+S pressed — you can trigger save here.");
       console.log({currentCode});
     });
+    // monacoInstance.editor.defineTheme('OneDarkPro',{
+    //   base: 'vs-dark',
+    //   inherit: true,
+    //   rules: [],
+    //   ...OneDarkPro,
+    // });
+    // monacoInstance.editor.setTheme('OneDarkPro');
+    monacoInstance.editor.defineTheme('XDarkPro',{
+      base: 'vs-dark',
+      inherit: true,
+      rules: [],
+      colors: {
+       "editor.background": "#171717",
+     }
+    });
+    monacoInstance.editor.setTheme('XDarkPro');
   }, []);
 
   return (
     <Editor
-      height="92vh"
+      height="100vh"
       defaultLanguage="javascript"
       defaultValue={initialCode}
-      theme="vs-dark"
+      // theme="vs-dark"
+      theme="XDarkPro"
       onMount={handleEditorDidMount}
       options={editorOptions}
     />

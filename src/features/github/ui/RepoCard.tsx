@@ -11,7 +11,7 @@ export function RepoCard({ repo }: { repo: Repo }) {
       rel="noreferrer"
       className="block p-4 bg-[#252526] rounded hover:bg-[#2a2d2e] hover:scale-105 duration-500 transition"
     >
-      <h2 className="text-lg font-semibold text-[#dcdcdc] hover:text-[#007acc] mb-1 truncate">
+      <h2 className="text-lg font-semibold text-[#dcdcdc] hover:text-blue-800 mb-1 truncate">
         {repo.name}
       </h2>
       {repo.description && (

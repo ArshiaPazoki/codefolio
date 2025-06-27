@@ -56,7 +56,7 @@ const ActivityBar: FC<ActivityBarProps> = ({
   const pathname = usePathname()
 
   return (
-    <aside className="flex flex-col justify-between w-12 bg-[#1e1e1e] select-none h-full">
+    <aside className="flex flex-col justify-between w-12 bg-neutral-900 select-none h-full">
       {/* Top section */}
       <div className="flex flex-col items-center space-y-2">
         {topItems.map((item) => {

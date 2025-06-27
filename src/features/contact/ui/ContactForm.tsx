@@ -48,34 +48,35 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
+      <div className="flex flex-row">
+        <div className="w-1/2 pr-2">
         <label className="block text-sm font-medium">Name</label>
         <input
           placeholder='Name'
           {...register('name')}
-          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-[#007acc]"
+          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-blue-800"
         />
         {errors.name && (
           <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
         )}
       </div>
-
-      <div>
+      <div className="w-1/2 pl-2">
         <label className="block text-sm font-medium">Email</label>
         <input
           {...register('email')}
-          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-[#007acc]"
+          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-blue-800"
         />
         {errors.email && (
           <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
         )}
+      </div>
       </div>
 
       <div>
         <label className="block text-sm font-medium">Subject</label>
         <input
           {...register('subject')}
-          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-[#007acc]"
+          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-blue-800"
         />
       </div>
 
@@ -84,7 +85,7 @@ export function ContactForm() {
         <textarea
           {...register('message')}
           rows={4}
-          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-[#007acc]"
+          className="mt-1 w-full bg-[#252526] border border-[#3c3c3c] rounded px-3 py-2 text-[#d4d4d4] focus:outline-none focus:ring-2 focus:ring-blue-800"
         />
         {errors.message && (
           <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
@@ -94,7 +95,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-block bg-[#007acc] hover:bg-[#005a9e] text-white font-medium px-6 py-2 rounded transition"
+        className="inline-block bg-neutral-900 hover:bg-blue-800 ring-2 ring-blue-800 text-white font-medium px-6 py-2 rounded transition"
       >
         {isSubmitting ? 'Sending…' : 'Send Message'}
       </button>

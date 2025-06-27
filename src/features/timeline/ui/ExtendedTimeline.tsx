@@ -22,11 +22,11 @@ const ExtendedTimeline: FC = () => {
   }, [])
 
   return (
-    <section className="bg-[#1e1e1e] text-[#d4d4d4] p-8">
+    <section className="bg-neutral-900 text-[#d4d4d4] p-8">
       <h2 className="text-2xl font-bold mb-8 text-center">Professional Experiences</h2>
       <div className="relative">
         {/* Center line */}
-        <div className="absolute left-8 md:left-8 border-r-2 border-[#007acc] h-full" />
+        <div className="absolute left-8 md:left-8 border-r-2 border-blue-800 h-full" />
         <div className="space-y-12">
           {timelineEvents.map((ev, idx) => {
             const key = ev.title.trim().toLowerCase()
@@ -35,10 +35,10 @@ const ExtendedTimeline: FC = () => {
               <div key={ev.title} className="flex items-start relative">
                 <div className="flex flex-col items-center">
                   {/* Node */}
-                    <div className="w-4 h-4 bg-[#007acc] rounded mt-1 z-10" />
+                    <div className="w-4 h-4 bg-blue-800 rounded mt-1 z-10" />
                   {/* Connector */}
                   {idx < timelineEvents.length - 1 && (
-                    <div className="w-px flex-1 bg-[#007acc]" />
+                    <div className="w-px flex-1 bg-blue-800" />
                   )}
                 </div>
                 <div className="ml-8">

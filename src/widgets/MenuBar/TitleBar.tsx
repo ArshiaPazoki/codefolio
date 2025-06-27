@@ -58,7 +58,7 @@ const TitleBar: FC = () => {
   }, [router])
 
   return (
-    <header className="w-full flex items-center justify-between h-8 bg-[#1e1e1e] text-[#cccccc] select-none px-1.5 box-border">
+    <header className="w-full flex items-center justify-between h-8 bg-neutral-900 text-[#cccccc] select-none px-1.5 box-border">
       {/* Left: VSCode icon + menu + nav */}
       <div className="flex items-center gap-2">
         <Image
@@ -96,7 +96,7 @@ const TitleBar: FC = () => {
         >
           <VscArrowRight size={16} />
         </button>
-        <div className="relative w-full max-w-2xl rounded border border-transparent hover:border-[#007acc] transition-colors duration-1000">
+        <div className="relative w-full max-w-2xl rounded border border-transparent hover:border-blue-800 transition-colors duration-1000">
           <Search
             size={14}
             className="absolute left-2 top-1/2 -translate-y-1/2 text-[#888888] hover:text-[#404040]"

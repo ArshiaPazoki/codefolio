@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <body className="relative flex flex-col h-screen w-screen antialiased bg-[#1e1e1e] text-[#cccccc] overflow-hidden">
+      <body className="relative flex flex-col h-screen w-screen antialiased bg-neutral-900 text-[#cccccc] overflow-hidden">
         {/* --- Top Bar --- */}
         <Titlebar />
 
@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             {/* Terminal Panel */}
             {terminalOpen && (
-              <div className="h-4/10 bg-[#1e1e1e] border-t border-[#333] overflow-hidden">
+              <div className="h-4/10 bg-neutral-900 border-t border-[#333] overflow-hidden">
                 <Terminal isOpen={true} />
               </div>
             )}

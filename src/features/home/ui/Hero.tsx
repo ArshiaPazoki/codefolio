@@ -59,37 +59,37 @@ const IntroPane: FC = () => {
     <div className="flex flex-col justify-center p-4 h-full">
       <h1 className="text-xl font-bold mb-4 align-middle whitespace-pre-line">
         <p className="mb-4">Hello World! I’m</p>
-        <p className="text-4xl sm:text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 hover:from-red-600 hover:to-yellow-300 transition-all animate-pulse">
+        <p className="text-4xl sm:text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-800 via-purple-800 to-red-800 hover:from-red-800 hover:to-yellow-300 transition-all animate-pulse">
           &lt;Arshia Pazoki /&gt;
         </p>
       </h1>
       <p className="text-xl text-gray-400 mb-6">
         {rotatingTitles}
         <span className={cursorOn ? '' : 'invisible'}> _ </span>
-        <Link href="https://asax.ir/" className='hover:text-red-600'>@ Asa.Co</Link>
+        <Link href="https://asax.ir/" className='hover:text-red-800'>@ Asa.Co</Link>
       </p>
 
       <div className="flex space-x-4 mb-6">
         <a
           download
           href="/files/cv.pdf"
-          className="btn-primary flex items-center justify-center space-x-1 rounded-lg p-2 border-1 border-blue-600 w-36 hover:scale-105"
+          className="btn-primary flex items-center justify-center space-x-1 rounded-lg p-2 ring-2 ring-blue-800 w-36 hover:scale-105"
         >
           <FiExternalLink size={16} /> <span>Download CV</span>
         </a>
         <Link
           href="/contact"
-          className="btn-secondary flex items-center justify-center space-x-1 rounded-lg p-2 border-1 border-red-600 w-36 hover:scale-105"
+          className="btn-secondary flex items-center justify-center space-x-1 rounded-lg p-2 ring-2 ring-red-800 w-36 hover:scale-105"
         >
           <FiExternalLink size={16} /> <span>Let&apos;s Talk</span>
         </Link>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col sm:flex-row overflow-auto bg-[#1e1e1e] rounded-lg shadow-lg">
+      <div className="flex flex-1 flex-col sm:flex-row overflow-y-auto bg-neutral-900 rounded-lg shadow-lg ring-0 ring-blue-800">
         {/* Category navigation */}
         <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 top-0">
-        <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-600'>&gt;_ Expertise &amp; Tools</p>
+        <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-800'>&gt;_ Expertise &amp; Tools</p>
         <div className="overflow-y-auto no-scrollbar h-full">
           {categories.map((cat) => (
             <button
@@ -98,7 +98,7 @@ const IntroPane: FC = () => {
               className={clsx(
                 'text-sm text-left px-2 py-2 rounded-lg focus:outline-none flex items-center justify-between',
                 activeCategory === cat
-                  ? 'border-l-2 border-blue-600 rounded-none text-white'
+                  ? 'border-l-2 border-blue-800 rounded-none text-white'
                   : 'text-gray-400 hover:bg-gray-800'
               )}
               aria-current={activeCategory === cat ? 'true' : undefined}
@@ -112,7 +112,7 @@ const IntroPane: FC = () => {
 
         {/* Mobile dropdown */}
         <div className="sm:hidden p-4 border-b border-gray-700">
-          <p className='p-2 mb-2 text-center border-1 rounded-lg border-blue-600'>Expertise & Tools</p>
+          <p className='p-2 mb-2 text-center border-1 rounded-lg border-blue-800'>Expertise & Tools</p>
           <select
             value={activeCategory}
             onChange={(e) => setActiveCategory(e.target.value)}
@@ -136,7 +136,7 @@ const IntroPane: FC = () => {
               placeholder="Search skills…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-10 pr-4 w-full bg-[#252526] text-white placeholder-gray-500 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-600"
+              className="pl-10 pr-4 w-full bg-[#252526] text-white placeholder-gray-500 p-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-800"
             />
           </div>
 
@@ -146,7 +146,7 @@ const IntroPane: FC = () => {
               {filteredSkills.map((skill) => (
                 <li
                   key={skill}
-                  className="text-sm px-2 py-2 border-2 border-[#2d2d2d] rounded-lg hover:border-blue-600 transition"
+                  className="text-sm px-2 py-2 border-2 border-[#2d2d2d] rounded-lg hover:border-blue-800 transition"
                 >
                   {skill}
                 </li>
@@ -169,12 +169,12 @@ const Hero: FC = () => {
   return (
     <section className="max-h-screen w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
       {/* Code editor only on sm+ */}
-      <div className="m-4 sm:m-0 rounded-lg sm:rounded-none sm:w-1/2 bg-[#1e1e1e] sm:order-0 order-1">
+      <div className="m-4 sm:m-0 rounded-lg sm:rounded-none sm:w-1/2 bg-neutral-900 sm:order-0 order-1">
         <IDE/>
       </div>
 
       {/* Always show intro pane; on sm+ it takes half the width */}
-      <div className="w-full sm:w-1/2 bg-bg-main text-fg-main">
+      <div className="w-full sm:w-1/2 bg-neutral-900 text-fg-main">
         <IntroPane />
       </div>
     </section>

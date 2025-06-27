@@ -136,7 +136,7 @@ export default function InteractiveGitGraph() {
 
   // 6) Finally, render your graph exactly once:
   return (
-    <div className="p-4 bg-[#1e1e1e] rounded-lg shadow-lg">
+    <div className="p-4 bg-neutral-900 rounded-lg shadow-lg">
       <div className=" border-[#333] rounded">
         <Gitgraph options={{
           template: vsCodeTemplate,
