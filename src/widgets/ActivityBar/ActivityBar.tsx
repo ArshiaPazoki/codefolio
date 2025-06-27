@@ -13,11 +13,11 @@ import {
   VscEdit,
   VscMail,
   VscAccount,
-  VscSettings,
   VscGitCommit,
   VscGitMerge,
   VscTerminal,
   VscListTree,
+  VscSettingsGear,
 } from 'react-icons/vsc'
 
 export interface ActivityBarProps {
@@ -46,7 +46,7 @@ const topItems: TopItem[] = [
 
 const bottomItems: LinkItem[] = [
   { Icon: VscAccount, path: '/about' },
-  { Icon: VscSettings, path: '/settings' },
+  { Icon: VscSettingsGear, path: '/settings' },
 ]
 
 const ActivityBar: FC<ActivityBarProps> = ({
@@ -63,7 +63,7 @@ const ActivityBar: FC<ActivityBarProps> = ({
           const isActiveLink = 'path' in item && item.path === pathname
           const baseClasses = isActiveLink
             ? 'border-l-2 border-white text-white'
-            : 'text-[#858585] hover:border-l-2 hover:text-white'
+            : 'text-[#858585] hover:text-white'
           const common = `flex items-center justify-center w-10 h-10 ${baseClasses}`
 
           if ('action' in item) {
@@ -94,7 +94,7 @@ const ActivityBar: FC<ActivityBarProps> = ({
           const active = path === pathname
           const baseClasses = active
             ? 'border-l-2 border-white text-white'
-            : 'text-[#858585] hover:border-l-2 hover:text-white'
+            : 'text-[#858585] hover:text-white'
           return (
             <Link href={path} key={path}>
               <div className={`flex items-center justify-center w-10 h-10 ${baseClasses}`}>
