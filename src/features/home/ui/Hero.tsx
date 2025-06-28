@@ -87,7 +87,7 @@ const IntroPane: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-1 flex-col sm:flex-row overflow-y-auto bg-neutral-900 rounded-lg shadow-lg ring-0 ring-blue-800">
+      <div className="flex flex-1 flex-col sm:flex-row overflow-y-auto bg-neutral-900 rounded-lg shadow-2xl/100 ring-0 ring-neutral-950">
         {/* Category navigation */}
         <nav className="hidden sm:flex flex-col w-1/2 border-r border-gray-700 p-4 space-y-2 top-0">
         <p className='hidden sticky z-10 font-semibold sm:flex p-2 mb-2 border-b-2 rounded-none border-blue-800'>&gt;_ Expertise &amp; Tools</p>
@@ -168,7 +168,7 @@ const IntroPane: FC = () => {
 
 const Hero: FC = () => {
   return (
-    <section className="max-h-screen w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
+    <section className="max-h-dvh w-full flex flex-col sm:flex-row sm:overflow-hidden sm:no-scrollbar">
       {/* Code editor only on sm+ */}
       <div className="m-4 sm:m-0 rounded-lg sm:rounded-none sm:w-1/2 bg-neutral-900 sm:order-0 order-1">
         <IDE/>

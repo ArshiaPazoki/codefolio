@@ -16,14 +16,14 @@ import dice from "../commands/dice";
 import joke from "../commands/joke";
 import quote from "../commands/qoute";
 import ls from "../commands/ls";
-import cd from "../commands/cd";
+// import cd from "../commands/cd";
 import cat from "../commands/cat";
-import ip from "../commands/ip";
+// import ip from "../commands/ip";
 import uuid from "../commands/uuid";
-import hash from "../commands/hash";
+// import hash from "../commands/hash";
 import base64 from "../commands/base64";
 import json from "../commands/json";
-import timer from "../commands/timer";
+// import timer from "../commands/timer";
 import stopwatch from "../commands/stopwatch";
 import todo from "../commands/todo";
 import starwars from "../commands/starwars";
@@ -49,14 +49,14 @@ export const commandRegistry: Record<string, Command> = {
   joke,
   quote,
   ls,
-  cd,
+  // cd,
   cat,
-  ip,
+  // ip,
   uuid,
-  hash,
+  // hash,
   base64,
   json,
-  timer,
+  // timer,
   stopwatch,
   todo,
   starwars,

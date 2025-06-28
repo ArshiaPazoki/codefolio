@@ -50,7 +50,7 @@ const Explorer: FC<ExplorerProps> = ({ isOpen }) => {
   if (!isOpen) return null
 
   return (
-    <aside className="hidden sm:flex flex flex-col w-1/8 min-w-[200px] bg-neutral-900 text-fg-main border-r border-[#333] overflow-hidden">
+    <aside className="hidden sm:flex flex-col w-1/8 min-w-[200px] bg-neutral-900 text-fg-main border-r border-[#333] overflow-hidden">
       {/* Header */}
       <div className="flex items-center p-3 border-b border-[#333]">
         <h2 className="flex-1 text-xs font-semibold uppercase text-gray-200">
