@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Main Area: Editor + Terminal */}
           <div className="flex flex-col flex-1 overflow-hidden">
             {/* Editor Area */}
-            <main className={`flex-1 overflow-auto no-scrollbar ${terminalOpen ? 'border-b border-[#333]' : ''}`}>
+            <main className={`flex flex-col flex-1 overflow-auto no-scrollbar  ${terminalOpen ? 'border-b border-[#333]' : ''}`}>
               {children}
             </main>
 

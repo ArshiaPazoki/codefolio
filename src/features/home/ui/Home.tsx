@@ -71,7 +71,7 @@ const IntroPane: FC = () => {
         <Link href="https://asax.ir/" className='hover:text-red-800'>@ Asa.Co</Link>
       </p>
 
-      <div className="flex space-x-4 mb-6">
+      <div className="flex justify-aroundddddd space-x-4 mb-6">
         <a
           download
           href="/files/cv.pdf"
