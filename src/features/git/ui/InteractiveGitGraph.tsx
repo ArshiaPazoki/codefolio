@@ -72,7 +72,7 @@ export default function InteractiveGitGraph() {
   const vsCodeTemplate = templateExtend(TemplateName.Metro, {
     // a palette pulled from VS Code Dark+ syntax theme
     colors: [
-      '#569CD6', // keywords / branch lines
+      '#193cb8', // keywords / branch lines
       '#DCDCAA', // strings / commit dots
       '#4EC9B0', // types / tags
       '#C586C0', // functions
@@ -80,14 +80,14 @@ export default function InteractiveGitGraph() {
     ],
   
     branch: {
-      color: '#569CD6',
+      color: '#193CB8',
       spacing: 40,        // more room between parallel branches
       lineWidth: 4,       // a bit thicker than default
       label: {
         font: '18px "Segoe UI", sans-serif',
         color: '#9CDCFE',              // light blue text
         bgColor: 'transparent',
-        strokeColor: '#569CD6',
+        strokeColor: '#193CB8',
         borderRadius: 3,
         // pointerWidth: 6,               // nice pointer
       },
@@ -98,7 +98,7 @@ export default function InteractiveGitGraph() {
       dot: {
         size: 8,
         color: '#1E1E1E',
-        strokeColor: '#569CD6', // dark bg stroke
+        strokeColor: '#193CB8', // dark bg stroke
         strokeWidth: 2,
       },
       message: {
