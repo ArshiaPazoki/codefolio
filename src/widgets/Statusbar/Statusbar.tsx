@@ -30,7 +30,7 @@ const Statusbar: FC = () => {
     <footer
       role="contentinfo"
       aria-label="Status Bar"
-      className="w-full flex items-center h-6 bg-blue-800 hover:bg-red-800 text-gray-200 text-[12px] font-sans select-none px-2 sm:px-4"
+      className="w-full flex items-center h-6 bg-blue-800 hover:bg-red-800 text-gray-300 text-[12px] font-sans select-none px-2 sm:px-4"
     >
       {/* Left group: icons always visible; labels responsive */}
       <div className="flex items-center space-x-2 flex-shrink-0">

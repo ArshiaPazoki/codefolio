@@ -4,11 +4,11 @@ import DependencyTree from '@/features/dependency-tree/ui/DependencyTree'
 
 export default function DependencyTreePage() {
   return (
-    <main className="p-8 bg-neutral-900 min-h-screen">
-      <h1 className="text-3xl font-bold text-[#d4d4d4] mb-6">
+    <main className="p-2 sm:p-4 bg-neutral-900">
+      <h1 className="text-xl sm:text-3xl text-center sm:text-left mb-2 sm:mb-4 font-bold text-[#d4d4d4]">
         📦 Dependency Tree of CodeFolio
       </h1>
-      <div className="h-[80vh] rounded border border-[#333] overflow-hidden">
+      <div className="h-[85vh] rounded border border-[#333] overflow-hidden">
         <DependencyTree/>
       </div>
     </main>

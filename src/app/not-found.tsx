@@ -61,12 +61,12 @@ export default function NotFound() {
 
       {/* Right Side */}
       <div className="w-9/10 md:w-2/3 h-1/2 md:h-2/3 flex flex-col justify-center items-center px-6 py-8 relative text-center">
-        <p className="text-green-500 text-sm mb-3 truncate">
+        <p className="text-green-500 text-md mb-3 truncate">
           Attempting to resolve route: <span className="text-yellow-400">{pathname}</span>
         </p>
-        <div className="w-full max-w-md bg-green-900 rounded-full h-2 overflow-hidden">
+        <div className="w-full max-w-md bg-green-900 rounded-full h-1 overflow-hidden">
           <div
-            className="bg-green-400 h-full transition-all duration-300"
+            className="bg-green-500 h-full transition-all duration-1000"
             style={{ width: `${progress.toFixed(2)}%` }}
           />
         </div>

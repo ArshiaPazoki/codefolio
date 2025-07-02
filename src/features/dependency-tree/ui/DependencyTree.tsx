@@ -81,6 +81,7 @@ function treeToFlow(root: TreeNode): { nodes: Node[]; edges: Edge[] } {
           </Tooltip>
         ),
         raw: node,
+        searchLabel: `${node.name}@${node.version}`,
       },
       // Style properties for visual appearance
       style: {
@@ -132,7 +133,7 @@ function CustomControls() {
   const { fitView } = useReactFlow();
 
   return (
-    <div className="absolute top-2 right-2 flex gap-2 z-10">
+    <div className="hidden sm:flex absolute top-2 right-2 gap-2 z-10">
       <button
         onClick={() => fitView()}
         className="px-3 py-1 text-sm text-white bg-blue-800 rounded shadow hover:bg-[#005fa3]"
@@ -207,7 +208,7 @@ export default function DependencyTree() {
     }
     // Filter nodes whose label includes the filter text (case-insensitive)
     const filteredNodes = elements.nodes.filter((n) =>
-      n.data.label.toLowerCase().includes(filter.toLowerCase())
+      n.data.searchLabel?.toLowerCase().includes(filter.toLowerCase())
     );
     // Collect visible node IDs
     const visibleNodeIds = new Set(filteredNodes.map((n) => n.id));
@@ -238,7 +239,7 @@ export default function DependencyTree() {
     <div className="w-full h-full relative bg-neutral-900">
       <ReactFlowProvider>
         {/* Search input and animation toggle */}
-        <div className="absolute top-2 left-2 z-10 flex gap-2">
+        <div className="flex relative top-2 left-2 z-10 gap-2">
           {/* Text input for filtering nodes by name or version */}
           <input
             type="text"
