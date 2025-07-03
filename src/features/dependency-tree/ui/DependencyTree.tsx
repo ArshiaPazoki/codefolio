@@ -279,6 +279,7 @@ export default function DependencyTree() {
         >
           {/* MiniMap shows an overview of the graph */}
           <MiniMap
+            className="hidden sm:flex"
             zoomable
             pannable
             nodeColor="#007acc"
@@ -286,6 +287,10 @@ export default function DependencyTree() {
             style={{
               backgroundColor: "#1e1e1e",
               border: "1px solid #333",
+              width: 200,
+              height: 150,
+              bottom: 40,
+              right: 10,
             }}
           />
           {/* Background renders a grid pattern */}
